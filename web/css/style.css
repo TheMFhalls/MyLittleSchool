@@ -1,0 +1,60 @@
+/*https://color.adobe.com/pt/create/color-wheel/?base=2&rule=Compound&selected=2
+&name=Meu%20tema%20do%20Color&mode=rgb&rgbvalues=0.8,0.20247151207780592,0.11055
+155868645886,0.6,0.4118564647778406,0.38291366901484414,1,0.23818944835807354,0.6
+517683932152347,0.6820428702458925,1,0.48818944835807354,0.6121923977960673,0.8,0.
+11055155868645886&swatchOrder=0,1,2,3,4*/
+
+html {
+    background: url(../img/fundo-child.jpg);
+    background-size: 100%;
+}
+
+.container{
+    max-width: 1100px;
+    margin: auto;
+    min-height: 1px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+header {
+    min-height: 100px;
+    background-color: rgb(255, 255, 181);
+    box-shadow: 0px 0px 10px grey;
+}
+
+#admin-bar{
+    min-height: 40px;
+    background-color: #3e3e3e;
+}
+
+#admin-bar .login span{
+    line-height: 40px;
+}
+
+#admin-bar .login span a{
+    color: white;
+    font-weight: bolder;
+}
+
+#header .logo img{
+    width: 50%;
+}
+
+#header .menu ul{
+    display: flex;
+}
+
+#header .menu ul li{    
+    display: flex;
+    width: 100%;
+}
+
+#header .menu ul li a{
+    color: #3e3e3e;
+    font-weight: bolder;    
+    margin-top: 50px;
+}
