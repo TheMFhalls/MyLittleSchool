@@ -25,7 +25,7 @@ public class FiltroConexaoBancoDados implements Filter {
     
     //Lógica do filtro: FiltroConexaoBancoDados:
     //DataBase db = DataBaseFactory.getDataBase ("MySql", "root", "unauna", "teste");  //ou 
-    DataBase db = DataBaseFactory.getDataBase ("SqlServer", "heredes", "Kgggdkp159753", "master");
+    DataBase db = DataBaseFactory.getDataBase ("MySql", "heredes", "Kgggdkp159753", "dbMLS");
       
     db.abrirConexao ();
     request.setAttribute ("db", db);
