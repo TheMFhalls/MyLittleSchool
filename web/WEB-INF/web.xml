@@ -1,12 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- Definição dos Filtros: -->
+    <filter>
+        <filter-name>FiltroConexaoBancoDados</filter-name>
+        <filter-class>filter.FiltroConexaoBancoDados</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FiltroConfirmaLoginUsuario</filter-name>
+        <filter-class>filter.FiltroConfirmaLoginUsuario</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FiltroLeitorParametrosUsuario</filter-name>
+        <filter-class>filter.FiltroLeitorParametrosUsuario</filter-class>
+    </filter>
+    <!-- Mapeamento dos Filtros - Ordem de Execução dos Filtros:
+       A ordem em que os mapeamentos são listados abaixo será
+       a mesma em que os filtros serão executados.  -->
+    <filter-mapping>
+        <filter-name>FiltroConexaoBancoDados</filter-name>
+        <url-pattern>/logar</url-pattern>
+        <url-pattern>/cadastrar</url-pattern>
+        <url-pattern>/excluir</url-pattern>
+        <url-pattern>/editar</url-pattern>
+        <url-pattern>/atualizar</url-pattern>
+        <url-pattern>/usuarios</url-pattern>
+        <url-pattern>/carregarvideo</url-pattern>
+        <url-pattern>/videos</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FiltroConfirmaLoginUsuario</filter-name>
+        <url-pattern>/logar</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FiltroLeitorParametrosUsuario</filter-name>
+        <url-pattern>/cadastrar</url-pattern>
+        <url-pattern>/atualizar</url-pattern>
+    </filter-mapping>
+    <!-- Definição e Mapeamento do Servlet: -->
+    <servlet>
+        <servlet-name>Controlador</servlet-name>
+        <servlet-class>controller.Controlador</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controlador</servlet-name>
+        <url-pattern>/controlador</url-pattern>
+        <url-pattern>/logar</url-pattern>
+        <url-pattern>/cadastrar</url-pattern>
+        <url-pattern>/excluir</url-pattern>
+        <url-pattern>/editar</url-pattern>
+        <url-pattern>/atualizar</url-pattern>
+        <url-pattern>/usuarios</url-pattern>
+        <url-pattern>/carregarvideo</url-pattern>
+        <url-pattern>/videos</url-pattern>
+    </servlet-mapping>
 </web-app>
