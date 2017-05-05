@@ -43,9 +43,16 @@ public class Controlador extends HttpServlet {
     throws ServletException, IOException {
       processRequest (request, response);
   }
-
+  
   @Override
-  public String getServletInfo () {
-    return "Short description";
+  protected void doDelete (HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+      processRequest (request, response);
+  }
+  
+  @Override
+  protected void doPut (HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+      processRequest (request, response);
   }
 }
