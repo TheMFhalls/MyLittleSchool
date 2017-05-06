@@ -1,35 +1,33 @@
 package model.bean;
 
+import java.sql.Date;
 
 public class Endereco {
-private long idEndereco;
-  private long numero;
-  private long idBairro;
-  private String nome;
-  private String logradouro;
-  private String complemento;
+    private long    idEndereco;
+    private int     numero;
+    private String  nome;
+    private String  logradouro;
+    private String  complemento;
+    private long    idBairro;
+    private Date    data;
+    private int     ativo;
   
-  
-  
-  public Endereco () {
-  }
-
-  
+    public Endereco () {
+    }
+    
     public long getIdEndereco() {
         return idEndereco;
     }
-
-
+    
     public void setIdEndereco(long idEndereco) {
         this.idEndereco = idEndereco;
     }
-
     
-    public long getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(long numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -63,9 +61,20 @@ private long idEndereco;
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-  
 
-  
+    public Date getData() {
+        return data;
+    }
 
- 
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }    
 }

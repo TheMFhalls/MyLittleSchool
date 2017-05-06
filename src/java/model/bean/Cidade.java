@@ -1,36 +1,54 @@
 package model.bean;
 
+import java.sql.Date;
 
 public class Cidade {
-  private long idEstado;
-  private long idCidade;
-  private String nome;
+    private long    idCidade;
+    private String  nome;
+    private long    idEstado;
+    private Date    data;
+    private int     ativo;
 
-  
+    public Cidade () {
+    }
 
-  public Cidade () {
-  }
+    public String getNome () {
+      return nome;
+    }
 
-  public String getNome () {
-    return nome;
-  }
+    public void setNome (String nome) {
+      this.nome = nome;
+    }
 
-  public void setNome (String nome) {
-    this.nome = nome;
-  }
+    public long getIdEstado () {
+      return idEstado;
+    }
 
-  public long getIdEstado () {
-    return idEstado;
-  }
+    public void setIdEstado (long idEstado) {
+      this.idEstado = idEstado;
+    }
+    
+    public long getIdCidade () {
+      return this.idCidade;
+    }
 
-  public void setIdEstado (long idEstado) {
-    this.idEstado = idEstado;
-  }
-public Long getIdCidade () {
-    return this.idCidade;
-  }
+    public void setIdCidade (long idCidade) {
+      this.idCidade = idCidade;
+    }
 
-  public void setIdCidade (Long idCidade) {
-    this.idCidade=idCidade;
-  }
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }   
 }

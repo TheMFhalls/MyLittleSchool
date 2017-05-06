@@ -1,26 +1,24 @@
 package model.bean;
 
+import java.sql.Date;
 
-public class Pontuacao {
+public class Pontuacao {   
+    private long    idPontuacao;
+    private double  alimentacao;
+    private double  infraestrutura;
+    private double  limpeza;
+    private double  educacao;
+    private double  organizacao;
+    private double  flexibilidade;
+    private double  profissionais;
+    private double  comunicacao;
+    private double  custo; 
+    private Date    data;
+    private int     ativo;
   
-    
-  private long idPontuacao;
-  private long alimentacao;
-  private long infraestrutura;
-  private long limpeza;
-  private long educacao;
-  private long organizacao;
-  private long flexibilidade;
-  private long profissionais;
-  private long comunicacao;
-  private long custo;
-   
- 
-  
-   public Pontuacao () {
-  }
+    public Pontuacao () {
+    }
 
-   
     public long getIdPontuacao() {
         return idPontuacao;
     }
@@ -29,80 +27,75 @@ public class Pontuacao {
         this.idPontuacao = idPontuacao;
     }
 
-   
-    public long getAlimentacao() {
+    public double getAlimentacao() {
         return alimentacao;
     }
 
-   
-    public void setAlimentacao(long alimentacao) {
+    public void setAlimentacao(double alimentacao) {
         this.alimentacao = alimentacao;
     }
 
-    public long getInfraestrutura() {
+    public double getInfraestrutura() {
         return infraestrutura;
     }
 
-    public void setInfraestrutura(long infraestrutura) {
+    public void setInfraestrutura(double infraestrutura) {
         this.infraestrutura = infraestrutura;
     }
 
-   
-    public long getLimpeza() {
+    public double getLimpeza() {
         return limpeza;
     }
 
-    public void setLimpeza(long limpeza) {
+    public void setLimpeza(double limpeza) {
         this.limpeza = limpeza;
     }
 
-    public long getEducacao() {
+    public double getEducacao() {
         return educacao;
     }
 
-    public void setEducacao(long educacao) {
+    public void setEducacao(double educacao) {
         this.educacao = educacao;
     }
 
-    public long getOrganizacao() {
+    public double getOrganizacao() {
         return organizacao;
     }
 
-    public void setOrganizacao(long organizacao) {
+    public void setOrganizacao(double organizacao) {
         this.organizacao = organizacao;
     }
 
-    public long getFlexibilidade() {
+    public double getFlexibilidade() {
         return flexibilidade;
     }
 
-    public void setFlexibilidade(long flexibilidade) {
+    public void setFlexibilidade(double flexibilidade) {
         this.flexibilidade = flexibilidade;
     }
 
-    public long getProfissionais() {
+    public double getProfissionais() {
         return profissionais;
     }
 
-    public void setProfissionais(long profissionais) {
+    public void setProfissionais(double profissionais) {
         this.profissionais = profissionais;
     }
 
-    public long getComunicacao() {
+    public double getComunicacao() {
         return comunicacao;
     }
 
-    public void setComunicacao(long comunicacao) {
+    public void setComunicacao(double comunicacao) {
         this.comunicacao = comunicacao;
     }
 
-    public long getCusto() {
+    public double getCusto() {
         return custo;
     }
 
-    public void setCusto(long custo) {
+    public void setCusto(double custo) {
         this.custo = custo;
-    }
- 
- 
+    }    
 }
