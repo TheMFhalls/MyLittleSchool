@@ -8,7 +8,7 @@ import model.bean.Estado;
 import model.dao.estado.EstadoDao;
 import model.jdbc.DataBase;
 
-public class AtualizarEstado  implements Logica {
+public class AtualizarEstado implements Logica {
   @Override
   public String executa (HttpServletRequest request, HttpServletResponse response) throws Exception {    
     String id_str = request.getParameter ("idEstado");

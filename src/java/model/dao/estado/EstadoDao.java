@@ -11,7 +11,7 @@ import model.dao.Dialeto;
 import model.jdbc.DataBase;
 
 public class EstadoDao{
-    private String exceptionError;
+    private final String exceptionError;
     protected Dialeto dialeto = null;
     Connection connection = null;
 

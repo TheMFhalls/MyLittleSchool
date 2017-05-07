@@ -21,10 +21,9 @@ public class FiltroConexaoBancoDados implements Filter {
   @Override
   public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
     throws IOException, ServletException {    
+      
     System.out.println ("-- 01 -- Entrando no filtro: FiltroConexaoBancoDados");
     
-    //Lógica do filtro: FiltroConexaoBancoDados:
-    //DataBase db = DataBaseFactory.getDataBase ("MySql", "root", "unauna", "teste");  //ou 
     DataBase db = DataBaseFactory.getDataBase ("MySql", "heredes", "Kgggdkp159753", "dbMLS");
       
     db.abrirConexao ();

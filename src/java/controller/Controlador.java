@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@MultipartConfig (maxFileSize    = 256 * 1024 * 1024, // 256MB. Se o tamanho do arquivo ultrapassar esse valor, o container Web envia uma mensagem de erro para o cliente com código HTTP 500 - Erro Interno do Servidor.
-                  maxRequestSize = 257 * 1024 * 1024) // 257MB. Se o tamanho da requisicao ultrapassar esse valor, o container Web envia uma mensagem de erro para o cliente com código HTTP 500 - Erro Interno do Servidor.
+@MultipartConfig (maxFileSize = 256 * 1024 * 1024, maxRequestSize = 257 * 1024 * 1024)
 public class Controlador extends HttpServlet {
   protected void processRequest (HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
