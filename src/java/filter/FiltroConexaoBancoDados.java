@@ -11,32 +11,33 @@ import model.jdbc.DataBase;
 import model.jdbc.DataBaseFactory;
 
 public class FiltroConexaoBancoDados implements Filter {  
-  public FiltroConexaoBancoDados () {
-  }  
-    
-  @Override
-  public void init (FilterConfig arg) throws ServletException {
-  }
-  
-  @Override
-  public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
-    throws IOException, ServletException {    
-      
-    System.out.println ("-- 01 -- Entrando no filtro: FiltroConexaoBancoDados");
-    
-    DataBase db = DataBaseFactory.getDataBase ("MySql", "heredes", "Kgggdkp159753", "dbMLS");
-      
-    db.abrirConexao ();
-    
-    request.setAttribute ("db", db);
-    
-    chain.doFilter (request, response);
-    
-    db.fecharConexao ();
-    System.out.println ("-- 01 -- Saindo do filtro: FiltroConexaoBancoDados");
-  }
-  
-  @Override
-  public void destroy () {
-  }
+    public FiltroConexaoBancoDados () {
+    }  
+
+    @Override
+    public void init (FilterConfig arg) throws ServletException {
+    }
+
+    @Override
+    public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
+        throws IOException, ServletException {    
+
+        System.out.println ("-- 01 -- Entrando no filtro: FiltroConexaoBancoDados");
+
+        DataBase db = DataBaseFactory.getDataBase("MySql", "heredes", "Kgggdkp159753", "dbMLS");
+
+        db.abrirConexao();
+
+        request.setAttribute("db", db);
+
+        chain.doFilter(request, response);
+
+        db.fecharConexao();
+
+        System.out.println ("-- 01 -- Saindo do filtro: FiltroConexaoBancoDados");
+    }
+
+    @Override
+    public void destroy () {
+    }
 }

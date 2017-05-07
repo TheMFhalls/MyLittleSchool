@@ -1,6 +1,5 @@
 package controller.logica.estado;
 
-
 import controller.logica.Logica;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -10,15 +9,14 @@ import model.dao.estado.EstadoDao;
 import model.jdbc.DataBase;
 
 public class ExibirEstado implements Logica {
-  @Override
-  public String executa (HttpServletRequest request, HttpServletResponse response) throws Exception {
-    DataBase db = (DataBase) request.getAttribute ("db");
-    
-    EstadoDao dao = new EstadoDao (db); //Inversão de controle e injeção de dependência.
-    List<Estado> estados = dao.listar ();
-    
-    request.setAttribute ("estados", estados);
-   //verificar esse return 
-    return "WEB-INF/view/listarUsuarios.jsp";    
-  }  
+    @Override
+    public void executa (HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
+        DataBase db = (DataBase) request.getAttribute("db");
+
+        EstadoDao dao = new EstadoDao(db); //Inversão de controle e injeção de dependência.
+        List<Estado> estados = dao.listar();
+
+        request.setAttribute("estados", estados);   
+    }  
 }

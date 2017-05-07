@@ -7,48 +7,17 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <filter-name>FiltroConexaoBancoDados</filter-name>
         <filter-class>filter.FiltroConexaoBancoDados</filter-class>
     </filter>
-    <filter>
-        <filter-name>FiltroConfirmaLoginUsuario</filter-name>
-        <filter-class>filter.FiltroConfirmaLoginUsuario</filter-class>
-    </filter>
-    <filter>
-        <filter-name>FiltroLeitorParametrosUsuario</filter-name>
-        <filter-class>filter.FiltroLeitorParametrosUsuario</filter-class>
-    </filter>
     <filter-mapping>
         <filter-name>FiltroConexaoBancoDados</filter-name>
-        <url-pattern>/logar</url-pattern>
-        <url-pattern>/cadastrar</url-pattern>
-        <url-pattern>/excluir</url-pattern>
-        <url-pattern>/editar</url-pattern>
-        <url-pattern>/atualizar</url-pattern>
-        <url-pattern>/usuarios</url-pattern>
-        <url-pattern>/carregarvideo</url-pattern>
-        <url-pattern>/videos</url-pattern>
+        <url-pattern>/estado/*</url-pattern>
     </filter-mapping>
-    <filter-mapping>
-        <filter-name>FiltroConfirmaLoginUsuario</filter-name>
-        <url-pattern>/logar</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>FiltroLeitorParametrosUsuario</filter-name>
-        <url-pattern>/cadastrar</url-pattern>
-        <url-pattern>/atualizar</url-pattern>
-    </filter-mapping>
+    
     <servlet>
-        <servlet-name>Controlador</servlet-name>
-        <servlet-class>controller.Controlador</servlet-class>
+        <servlet-name>ControladorEstado</servlet-name>
+        <servlet-class>controller.ControladorEstado</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Controlador</servlet-name>
-        <url-pattern>/controlador</url-pattern>
-        <url-pattern>/logar</url-pattern>
-        <url-pattern>/cadastrar</url-pattern>
-        <url-pattern>/excluir</url-pattern>
-        <url-pattern>/editar</url-pattern>
-        <url-pattern>/atualizar</url-pattern>
-        <url-pattern>/usuarios</url-pattern>
-        <url-pattern>/carregarvideo</url-pattern>
-        <url-pattern>/videos</url-pattern>
+        <servlet-name>ControladorEstado</servlet-name>
+        <url-pattern>/estado/*</url-pattern>
     </servlet-mapping>
 </web-app>
