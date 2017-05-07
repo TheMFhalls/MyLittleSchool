@@ -1,28 +1,3 @@
-/*
-*** Comandos no MS SQL Server ***
-create database teste;
-
-use teste;
-GO
-
-create table teste.dbo.usuario (
-  id bigint identity (1, 1) primary key,
-  nome varchar (255) not null,
-  email varchar (255) not null,
-  senha varchar (255) not null,
-  data_nascimento date
-);
-
-*** Comandos no Oracle MySQL ***
-create table teste.usuario (
-  id bigint not null auto_increment,
-  nome varchar (255) not null,
-  email varchar (255) not null,
-  senha varchar (255) not null,
-  data_nascimento date,
-  primary key (id)
-); 
-*/
 package model.dao.usuario;
 
 import java.sql.Connection;
