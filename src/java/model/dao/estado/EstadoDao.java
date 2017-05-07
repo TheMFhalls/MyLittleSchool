@@ -61,7 +61,7 @@ public class EstadoDao{
             while (rs.next()) {
                 Estado es = new Estado ();
 
-                es.setIdEstado (rs.getLong ("id"));
+                es.setIdEstado (rs.getLong("idEstado"));
                 es.setNome (rs.getString ("nome"));
                 es.setUf(rs.getString("uf"));
                 es.setData(rs.getDate("data"));
