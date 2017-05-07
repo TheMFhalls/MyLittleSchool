@@ -27,6 +27,7 @@ public class FiltroConexaoBancoDados implements Filter {
     DataBase db = DataBaseFactory.getDataBase ("MySql", "heredes", "Kgggdkp159753", "dbMLS");
       
     db.abrirConexao ();
+    
     request.setAttribute ("db", db);
     
     chain.doFilter (request, response);
