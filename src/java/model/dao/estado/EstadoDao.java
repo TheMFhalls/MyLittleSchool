@@ -102,7 +102,7 @@ public class EstadoDao{
             rs = ps.executeQuery ();
 
             if (rs.next()) {
-                es.setIdEstado (rs.getLong ("id"));
+                es.setIdEstado (rs.getLong ("idEstado"));
                 es.setNome (rs.getString ("nome"));
                 es.setUf(rs.getString("uf"));
                 es.setData(rs.getDate("data"));
@@ -137,7 +137,8 @@ public class EstadoDao{
             ps.setString(1, es.getNome());
             ps.setString(2, es.getUf());
             ps.setDate(3, es.getData());
-            ps.setInt(3, es.getAtivo());
+            ps.setInt(4, es.getAtivo());
+            ps.setLong(4, es.getIdEstado());
 
             ps.executeUpdate ();
         } catch (Exception e) {

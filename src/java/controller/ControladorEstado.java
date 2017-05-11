@@ -2,6 +2,8 @@ package controller;
 
 import com.google.gson.Gson;
 import controller.logica.Logica;
+import controller.logica.estado.AtualizarEstado;
+import controller.logica.estado.EncontrarEstado;
 import controller.logica.estado.ExibirEstado;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -15,18 +17,29 @@ public class ControladorEstado extends Controlador {
     protected void doGet (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
          try{
-            String[] pathParts;
-        
+            String[] pathParts;        
             pathParts = getPathParts(request, response);
+            request.setAttribute("pathParts", pathParts);
 
-            Logica logica = (Logica) new ExibirEstado();
+            if(pathParts.length == 4){
+                Logica logica = (Logica) new EncontrarEstado();
 
-            logica.executa(request, response);
+                logica.executa(request, response);
 
-            String json = new Gson().toJson(request.getAttribute("estados"));
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);           
+                String json = new Gson().toJson(request.getAttribute("estado"));
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }else{
+                Logica logica = (Logica) new ExibirEstado();
+
+                logica.executa(request, response);
+
+                String json = new Gson().toJson(request.getAttribute("estados"));
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);                  
+            }                      
         }catch(Exception e){
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
           e.printStackTrace ();
@@ -48,6 +61,22 @@ public class ControladorEstado extends Controlador {
     @Override
     protected void doPut (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        getPathParts(request, response);
+        try{
+            String[] pathParts;        
+            pathParts = getPathParts(request, response);
+            request.setAttribute("pathParts", pathParts);
+            
+            Logica logica = (Logica) new AtualizarEstado();
+            
+            logica.executa(request, response);
+
+            String json = new Gson().toJson(request.getAttribute("estado"));
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }catch(Exception e){
+          System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
+          e.printStackTrace ();
+        }
     }
 }
