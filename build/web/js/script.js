@@ -1,12 +1,13 @@
 function formAjaxSubmit(identificador, sucesso){
     $(identificador).on("submit", function(event){
-        var elemento = $(this);
         event.preventDefault();
+        var elemento = $(this);
+        var JsonForm = elemento.serializeObject();
         $.ajax({
             url: elemento.attr("action"),
             contentType: 'application/json',
             type: elemento.attr("method"),
-            data: elemento.serialize(),
+            data: JSON.stringify(JsonForm),
             dataType: "json"
         }).done(function(data){
             sucesso(data);
