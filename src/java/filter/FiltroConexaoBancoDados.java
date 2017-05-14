@@ -20,10 +20,7 @@ public class FiltroConexaoBancoDados implements Filter {
 
     @Override
     public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
-        throws IOException, ServletException {    
-
-        System.out.println ("-- 01 -- Entrando no filtro: FiltroConexaoBancoDados");
-
+        throws IOException, ServletException {
         DataBase db = DataBaseFactory.getDataBase("MySql", "heredes", "Kgggdkp159753", "dbMLS");
 
         db.abrirConexao();
@@ -33,8 +30,6 @@ public class FiltroConexaoBancoDados implements Filter {
         chain.doFilter(request, response);
 
         db.fecharConexao();
-
-        System.out.println ("-- 01 -- Saindo do filtro: FiltroConexaoBancoDados");
     }
 
     @Override

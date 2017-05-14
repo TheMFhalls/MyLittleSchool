@@ -6,20 +6,17 @@ import controller.logica.estado.AtualizarEstado;
 import controller.logica.estado.EncontrarEstado;
 import controller.logica.estado.ExibirEstado;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ControladorEstado extends Controlador {
+public class ControladorEstado extends HttpServlet {
     @Override
     protected void doGet (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
          try{
-            String[] pathParts;        
-            pathParts = getPathParts(request, response);
-            request.setAttribute("pathParts", pathParts);
+            String[] pathParts = (String[]) request.getAttribute("pathParts");
 
             if(pathParts.length == 4){
                 Logica logica = (Logica) new EncontrarEstado();
@@ -42,30 +39,23 @@ public class ControladorEstado extends Controlador {
             }                      
         }catch(Exception e){
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
-          e.printStackTrace ();
         }
     }
 
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        getPathParts(request, response);
     }
 
     @Override
     protected void doDelete (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        getPathParts(request, response);
     }
 
     @Override
     protected void doPut (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        try{
-            String[] pathParts;        
-            pathParts = getPathParts(request, response);
-            request.setAttribute("pathParts", pathParts);
-            
+        try{            
             Logica logica = (Logica) new AtualizarEstado();
             
             logica.executa(request, response);
@@ -75,8 +65,7 @@ public class ControladorEstado extends Controlador {
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(json);
         }catch(Exception e){
-          System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
-          e.printStackTrace ();
+            System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
 }

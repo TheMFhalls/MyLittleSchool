@@ -3,9 +3,7 @@ package controller.logica.estado;
 
 import com.google.gson.Gson;
 import controller.logica.Logica;
-import functions.Functions;
-import java.io.BufferedReader;
-import java.util.stream.Collectors;
+import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Estado;
@@ -16,20 +14,29 @@ public class AtualizarEstado implements Logica {
     @Override
     public void executa (HttpServletRequest request, HttpServletResponse response)
         throws Exception {
-        Gson gson = new Gson();
-        String valor = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         DataBase db = (DataBase) request.getAttribute("db");
         String[] pathParts = (String[]) request.getAttribute("pathParts");
+        String data = (String) request.getAttribute("data");
+        java.util.Locale locale = request.getLocale();
+        java.text.DateFormat dateFormat = java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.LONG, java.text.DateFormat.LONG, locale );
+        java.util.Date date = new java.util.Date();
+        java.sql.Date dataAtual = new java.sql.Date( date.getTime() );
         
-        Estado estado2 = gson.fromJson(valor, Estado.class);
+        Gson gson = new Gson();
+        Estado estadoNovo = gson.fromJson(data, Estado.class);
 
         EstadoDao dao = new EstadoDao(db);
-        Estado estado = dao.encontrar(Long.parseLong(pathParts[3]));
+        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
         
-        estado.setIdEstado(Long.parseLong(pathParts[3]));
-        //estado.setNome(request.getParameter("nome"));  
+        estadoAtual.setIdEstado(Long.parseLong(pathParts[3]));
+        estadoAtual.setNome(estadoNovo.getNome());  
+        estadoAtual.setUf(estadoNovo.getUf());  
+        estadoAtual.setData(dataAtual);
+        estadoAtual.setAtivo(1);  
+        
+        dao.alterar(estadoAtual);
 
-        request.setAttribute("estado", estado);  
+        request.setAttribute("estado", estadoAtual);  
 
     }
 }  

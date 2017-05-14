@@ -2,8 +2,10 @@ package model.dao.estado;
 
 import model.bean.Estado;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,20 +32,18 @@ public class EstadoDao{
 
             ps.setString(1, es.getNome());
             ps.setString(2, es.getUf());
-            ps.setDate(3, es.getData());
+            ps.setDate(3, (java.sql.Date) es.getData());
             ps.setInt(4, es.getAtivo());
 
             ps.executeUpdate ();
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Erro: classe EstadoDao - não foi possível inserir o Estado no BD.");
-            e.printStackTrace();
         }finally{
             try{
                 if(ps != null)
                     ps.close();
-            }catch(Exception e){
+            }catch(SQLException e){
                 System.out.println(exceptionError);
-                e.printStackTrace();
             }
         }  
     }
@@ -64,24 +64,22 @@ public class EstadoDao{
                 es.setIdEstado (rs.getLong("idEstado"));
                 es.setNome (rs.getString ("nome"));
                 es.setUf(rs.getString("uf"));
-                es.setData(rs.getDate("data"));
+                es.setData((java.sql.Date) rs.getDate("data"));
                 es.setAtivo(rs.getInt("ativo"));
                 
                 resp.add (es);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             resp = null;
             System.out.println ("Erro: classe EstadoDao - não foi possível ler os dados dos Estados a partir do BD!");
-            e.printStackTrace ();
         } finally {
             try {
                 if (rs != null) 
                     rs.close ();      
                 if (stmt != null)
                     stmt.close ();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println (exceptionError);
-                e.printStackTrace ();
             }
         }  
 
@@ -105,22 +103,20 @@ public class EstadoDao{
                 es.setIdEstado (rs.getLong ("idEstado"));
                 es.setNome (rs.getString ("nome"));
                 es.setUf(rs.getString("uf"));
-                es.setData(rs.getDate("data"));
+                es.setData((java.sql.Date) rs.getDate("data"));
                 es.setAtivo(rs.getInt("ativo"));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
           es = null;
           System.out.println ("Erro: classe EstadoDao - Estado não encontrado.");
-          e.printStackTrace ();
         } finally {
           try {
             if (rs != null) 
                 rs.close ();      
             if (ps != null)
                 ps.close ();
-          } catch (Exception e) {
+          } catch (SQLException e) {
             System.out.println (exceptionError);
-            e.printStackTrace ();
           }
         }  
         
@@ -138,19 +134,17 @@ public class EstadoDao{
             ps.setString(2, es.getUf());
             ps.setDate(3, es.getData());
             ps.setInt(4, es.getAtivo());
-            ps.setLong(4, es.getIdEstado());
+            ps.setLong(5, es.getIdEstado());
 
-            ps.executeUpdate ();
-        } catch (Exception e) {
+            ps.executeUpdate();
+        } catch (SQLException e) {
             System.out.println ("Erro: classe EstadoDao - não foi possível atualizar o Estado no BD.");
-            e.printStackTrace ();
         } finally {
             try {
                 if (ps != null)
                     ps.close ();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println (exceptionError);
-                e.printStackTrace ();
             }
         }  
     }
@@ -165,16 +159,14 @@ public class EstadoDao{
         ps.setLong (1, es.getIdEstado ());
 
         ps.executeUpdate ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível excluir o usuário no BD.");
-        e.printStackTrace ();
       } finally {
         try {
           if (ps != null)
             ps.close ();
-        } catch (Exception e) {
+        } catch (SQLException e) {
           System.out.println (exceptionError);
-          e.printStackTrace ();
         }
       }  
     }

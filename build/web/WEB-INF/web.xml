@@ -2,6 +2,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <filter>
+        <filter-name>FiltroParametros</filter-name>
+        <filter-class>filter.FiltroParametros</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroParametros</filter-name>
+        <url-pattern>/estado/*</url-pattern>
+    </filter-mapping>
 
     <filter>
         <filter-name>FiltroConexaoBancoDados</filter-name>
