@@ -150,32 +150,33 @@ public class EstadoDao{
     }
 
     public void remover(Estado es) {
-      PreparedStatement ps = null;
+        PreparedStatement ps = null;
 
-      try {      
-        String sql_delete = dialeto.remover ();
-        ps = this.connection.prepareStatement (sql_delete);
+        try {      
+            String sql_delete = dialeto.remover ();
+            ps = this.connection.prepareStatement (sql_delete);
 
-        ps.setLong (1, es.getIdEstado ());
+            ps.setInt(1, es.getAtivo());
+            ps.setLong(2, es.getIdEstado());
 
-        ps.executeUpdate ();
-      } catch (SQLException e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível excluir o usuário no BD.");
-      } finally {
-        try {
-          if (ps != null)
-            ps.close ();
+            ps.executeUpdate ();
         } catch (SQLException e) {
-          System.out.println (exceptionError);
-        }
-      }  
+            System.out.println ("Erro: classe UsuarioDao - não foi possível excluir o usuário no BD.");
+        } finally {
+            try {
+              if (ps != null)
+                ps.close ();
+            } catch (SQLException e) {
+                System.out.println (exceptionError);
+            }
+        }  
     }
 
     public Dialeto getDialeto () {
-      return dialeto;
+        return dialeto;
     }
 
     public void setDialeto (Dialeto dialeto) {
-      this.dialeto = dialeto;
+        this.dialeto = dialeto;
     } 
 }

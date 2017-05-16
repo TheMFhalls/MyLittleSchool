@@ -13,12 +13,12 @@ public class DialetoEstado implements Dialeto {
 
     @Override
     public String listar(){
-      return "SELECT * FROM dbMLS.estado";
+      return "SELECT * FROM dbMLS.estado WHERE ativo = 1";
     }
 
     @Override
     public String encontrar(){
-      return "SELECT * FROM dbMLS.estado WHERE idEstado = ?";
+      return "SELECT * FROM dbMLS.estado WHERE idEstado = ? AND ativo = 1";
     }
 
     @Override
@@ -28,6 +28,6 @@ public class DialetoEstado implements Dialeto {
 
     @Override
     public String remover(){
-      return "DELETE FROM dbMLS.estado WHERE idEstado = ?";
+      return "UPDATE dbMLS.estado ativo = ? WHERE idEstado = ?";
     }
 }
