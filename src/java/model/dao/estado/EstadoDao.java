@@ -2,7 +2,6 @@ package model.dao.estado;
 
 import model.bean.Estado;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

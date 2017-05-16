@@ -28,6 +28,6 @@ public class DialetoEstado implements Dialeto {
 
     @Override
     public String remover(){
-      return "UPDATE dbMLS.estado ativo = ? WHERE idEstado = ?";
+      return "UPDATE dbMLS.estado SET ativo = ? WHERE idEstado = ?";
     }
 }

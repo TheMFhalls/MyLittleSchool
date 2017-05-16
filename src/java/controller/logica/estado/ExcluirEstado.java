@@ -1,6 +1,5 @@
 package controller.logica.estado;
 
-import com.google.gson.Gson;
 import controller.logica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
