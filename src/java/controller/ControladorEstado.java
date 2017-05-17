@@ -3,6 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import controller.logica.Logica;
 import controller.logica.estado.AtualizarEstado;
+import controller.logica.estado.CadastrarEstado;
 import controller.logica.estado.EncontrarEstado;
 import controller.logica.estado.ExcluirEstado;
 import controller.logica.estado.ExibirEstado;
@@ -46,6 +47,18 @@ public class ControladorEstado extends HttpServlet {
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        try{            
+            Logica logica = (Logica) new CadastrarEstado();
+            
+            logica.executa(request, response);
+
+            String json = new Gson().toJson(request.getAttribute("estado"));
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }catch(Exception e){
+            System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
+        }
     }
 
     @Override

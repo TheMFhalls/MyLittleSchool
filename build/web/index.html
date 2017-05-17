@@ -49,7 +49,17 @@
             </section>
         </header>
         <main>
-            <form id="estado-update" method="DELETE" action="/MyLittleSchool/estado/1">
+            <form id="estado-insert" method="POST" action="/MyLittleSchool/estado">
+                <div>
+                    <input type="text" name="nome" placeholder="Nome" />
+                </div>
+                <div>
+                    <input type="text" name="uf" placeholder="UF" />
+                </div>
+                <div>
+                    Data : 
+                    <input type="date" name="data" />
+                </div>
                 <div>
                     <input type="submit" value="ENVIAR" />
                 </div>

@@ -21,4 +21,7 @@ window.onload = function(){
     formAjaxSubmit("#estado-update", function(data){
        console.log(data);
     });
+    formAjaxSubmit("#estado-insert", function(data){
+       console.log(data);
+    });
 };
