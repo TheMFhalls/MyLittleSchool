@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import controller.logica.Logica;
 import controller.logica.estado.AtualizarEstado;
 import controller.logica.estado.CadastrarEstado;
@@ -25,19 +26,21 @@ public class ControladorEstado extends HttpServlet {
 
                 logica.executa(request, response);
 
-                String json = new Gson().toJson(request.getAttribute("estado"));
+                Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+                String data = json.toJson(request.getAttribute("estado"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(json);
+                response.getWriter().write(data);
             }else{
                 Logica logica = (Logica) new ExibirEstado();
 
                 logica.executa(request, response);
 
-                String json = new Gson().toJson(request.getAttribute("estados"));
+                Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+                String data = json.toJson(request.getAttribute("estados"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(json);                  
+                response.getWriter().write(data);                 
             }                      
         }catch(Exception e){
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
@@ -51,11 +54,12 @@ public class ControladorEstado extends HttpServlet {
             Logica logica = (Logica) new CadastrarEstado();
             
             logica.executa(request, response);
-
-            String json = new Gson().toJson(request.getAttribute("estado"));
+            
+            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+            String data = json.toJson(request.getAttribute("estado"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
+            response.getWriter().write(data);
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
@@ -69,10 +73,11 @@ public class ControladorEstado extends HttpServlet {
             
             logica.executa(request, response);
 
-            String json = new Gson().toJson(request.getAttribute("estado"));
+            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+            String data = json.toJson(request.getAttribute("estado"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
+            response.getWriter().write(data);
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
@@ -86,10 +91,11 @@ public class ControladorEstado extends HttpServlet {
             
             logica.executa(request, response);
 
-            String json = new Gson().toJson(request.getAttribute("estado"));
+            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+            String data = json.toJson(request.getAttribute("estado"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
+            response.getWriter().write(data);
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }

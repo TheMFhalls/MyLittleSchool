@@ -20,10 +20,13 @@ public class CadastrarEstado implements Logica {
         
         Gson gson = new Gson();
         Estado estado = gson.fromJson(data, Estado.class);
+        
+        estado.setData(dataAtual);
+        estado.setAtivo(1);
 
         EstadoDao dao = new EstadoDao(db); 
         
-        //dao.inserir(estado);
+        dao.inserir(estado);
 
         request.setAttribute("estado", estado); 
     }
