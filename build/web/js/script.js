@@ -7,12 +7,12 @@ function formAjaxSubmit(identificador, sucesso){
     $(identificador).on("submit", function(event){
         event.preventDefault();
         var elemento = $(this);
-        var JsonForm = elemento.serializeObject();
+        var jsonForm = elemento.serializeObject();
         $.ajax({
             url: elemento.attr("action"),
             contentType: 'application/json',
             type: elemento.attr("method"),
-            data: JSON.stringify(JsonForm),
+            data: JSON.stringify(jsonForm),
             dataType: "json"
         }).done(function(data){
             sucesso(data);
@@ -30,9 +30,15 @@ function reload(){
     formAjaxSubmit("#estado-insert", function(data){
        console.log(data);
     });
+<<<<<<< HEAD
     console.log("ENTROU!");
 }
 
 window.onload = function(){
     setTimeout(reload, 500);
+=======
+    formAjaxSubmit("#estado-delete", function(data){
+       console.log(data);
+    });
+>>>>>>> cf4b4d1504853635a5bbc4563897a4958e7113b5
 };
