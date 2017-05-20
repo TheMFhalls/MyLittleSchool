@@ -1,4 +1,9 @@
-function formAjaxSubmit(identificador, sucesso){
+function formAjaxSubmit(identificador, sucesso){   
+    if($(identificador).attr("setted") === "ready"){        
+        return;
+    }else{
+        $(identificador).attr("setted", "ready");
+    }
     $(identificador).on("submit", function(event){
         event.preventDefault();
         var elemento = $(this);
@@ -15,13 +20,19 @@ function formAjaxSubmit(identificador, sucesso){
             alert("Erro ao submeter o formulário '"+elemento.attr("id")+"'.");
         });
     });
+    console.log("Setado! "+identificador);
 };
 
-window.onload = function(){
+function reload(){
     formAjaxSubmit("#estado-update", function(data){
        console.log(data);
     });
     formAjaxSubmit("#estado-insert", function(data){
        console.log(data);
     });
+    console.log("ENTROU!");
+}
+
+window.onload = function(){
+    setTimeout(reload, 500);
 };
