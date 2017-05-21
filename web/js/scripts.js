@@ -1,4 +1,9 @@
-function formAjaxSubmit(identificador, sucesso){   
+function formAjaxSubmit(identificador, sucesso){ 
+    /*
+    formAjaxSubmit("#estado-update", function(data){
+       console.log(data);
+    });
+    */
     if($(identificador).attr("setted") === "ready"){        
         return;
     }else{
@@ -23,24 +28,9 @@ function formAjaxSubmit(identificador, sucesso){
     });
 };
 
-function reload(){
-    formAjaxSubmit("#estado-update", function(data){
-       console.log(data);
-    });
-    formAjaxSubmit("#estado-insert", function(data){
-       console.log(data);
-    });
-    formAjaxSubmit("#estado-delete", function(data){
-       console.log(data);
-    });
-}
-
-function view(){
+window.onload = function(){
     $("#admin-bar").load(window.location.href+
         "view/header/admin-bar.html");
-}
-
-window.onload = function(){
-    setInterval(reload, 500);
-    view();
+    $("main").load(window.location.href+
+        "view/main/regiao.html");
 };

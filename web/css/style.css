@@ -57,3 +57,9 @@ header {
     font-weight: bolder;    
     margin-top: 50px;
 }
+
+main > div .regiao .container-regiao {
+    background-color: rgba(255, 61, 166, 0.40);
+    border-radius: 20px;
+    padding: 30px 15px;
+}

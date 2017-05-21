@@ -31,7 +31,7 @@ public class FiltroParametros implements Filter {
             
             chain.doFilter(request, response);
         }catch(IOException | ServletException e){
-          System.out.println ("Erro: classe Controlador - não foi possível executar a lógica de negócio.");
+            System.out.println("Erro: classe FiltroParametros - não foi reculperar os parametros da requisição.");
         }        
     }
 
@@ -47,7 +47,7 @@ public class FiltroParametros implements Filter {
             String pathInfo = request.getRequestURI();
             pathParts = pathInfo.split("/");            
         }catch(Exception e){
-          System.out.println ("Erro: classe Controlador - não foi possível executar a lógica de negócio.");
+            System.out.println("Erro: classe FiltroParametros - não foi reculperar os parametros da requisição.");
         }
 
         return pathParts;
