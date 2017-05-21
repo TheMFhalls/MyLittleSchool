@@ -3,6 +3,11 @@ package model.bean;
 import java.sql.Date;
 
 public class Pontuacao {   
+
+   
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
     private long    idPontuacao;
     private double  alimentacao;
     private double  infraestrutura;
@@ -98,4 +103,19 @@ public class Pontuacao {
     public void setCusto(double custo) {
         this.custo = custo;
     }    
-}
+
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+  
+    public int getAtivo() {
+        return ativo;
+    }
+
+}// fim class

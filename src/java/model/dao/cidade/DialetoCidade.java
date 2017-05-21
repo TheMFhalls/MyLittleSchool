@@ -14,26 +14,26 @@ public class DialetoCidade implements Dialeto {
   
   @Override
   public String inserir () {
-    return "insert into mls" + this.complemento + ".cidade (nome,idEstado) values (?, ?)";
+    return "insert into db.MLS.cidade (nome,idEstado,data,ativo) values (?, ?, ? , ?)";
   }
 
   @Override
   public String listar () {
-    return "select * from mls" + this.complemento + ".cidade";
+    return "select * from db.MLS.cidade WHERE ativo = 1";
   }
 
   @Override
   public String encontrar () {
-    return "select * from mls" + this.complemento + ".cidade where idCidade = ?";
+    return "select * from db.MLS.cidade where idCidade = ? AND ativo = 1";
   }
 
   @Override
   public String alterar () {
-    return "update mls" + this.complemento + ".cidade set nome = ?,idEstado = ? where idCidade = ?";
+    return "update db.MLS.cidade set nome = ?,idEstado = ?, ativo = ? where idCidade = ?";
   }
 
   @Override
   public String remover () {
-    return "delete from mls" + this.complemento + ".cidade where idCidade = ?";
+    return "update from db.MLS.cidade SET ativo = 0 where idCidade = ?";
   }
 }

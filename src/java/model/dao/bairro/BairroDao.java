@@ -1,6 +1,6 @@
 
 package model.dao.bairro;
-import model.dao.cidade.*;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,6 +29,8 @@ public class BairroDao {
       
       ps.setString (1, b.getNome ());
       ps.setLong (2, b.getIdCidade ());
+      ps.setDate(3, b.getData());
+      ps.setInt(4, b.getAtivo());
    
       
       ps.executeUpdate ();
@@ -62,6 +64,8 @@ public class BairroDao {
         b.setIdBairro (rs.getLong ("idBairro"));
         b.setNome (rs.getString ("nome"));
         b.setIdCidade(rs.getLong("idcidade"));
+        b.setData(rs.getDate("data"));
+        b.setAtivo(rs.getInt("ativo"));
         resp.add (b);
       }
     } catch (Exception e) {
@@ -100,6 +104,8 @@ public class BairroDao {
         b.setIdBairro (rs.getLong ("idBairro"));
         b.setNome (rs.getString ("nome"));
         b.setIdCidade(rs.getLong("idCidade"));
+        b.setData(rs.getDate("data"));
+        b.setAtivo(rs.getInt("ativo"));
         
       }
     } catch (Exception e) {
@@ -130,6 +136,8 @@ public class BairroDao {
       ps.setString (1, b.getNome ());
       ps.setLong (2, b.getIdBairro ());
       ps.setLong (3, b.getIdCidade ());
+      ps.setDate(4, b.getData());
+      ps.setInt(5, b.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {

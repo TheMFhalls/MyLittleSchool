@@ -1,9 +1,6 @@
 package model.dao.endereco;
 
 
-import model.dao.cidade.*;
-import model.dao.estado.*;
-import model.dao.Dialeto;
 import model.dao.Dialeto;
 
 public class DialetoEndereco implements Dialeto {
@@ -15,28 +12,28 @@ public class DialetoEndereco implements Dialeto {
   
   @Override
   public String inserir () {
-    return "insert into mls" + this.complemento + ".endereco (logradouro,numero,idBairro,complemento) "
-            + "values (?, ?,?,?,)";
+    return "insert into db.MLS.endereco (logradouro,numero,idBairro,complemento, data, ativo) "
+            + "values (?, ?,?,?,?,?)";
   }
 
   @Override
   public String listar () {
-    return "select * from mls" + this.complemento + ".endereco";
+    return "select * from db.MLS.endereco where ativo = 1";
   }
 
   @Override
   public String encontrar () {
-    return "select * from mls" + this.complemento + ".endereco where idEndereco = ?";
+    return "select * from db.MLS.endereco where idEndereco = ? AND ativo = 1";
   }
 
   @Override
   public String alterar () {
-    return "update mls" + this.complemento + ".endereco set logradouro = ?,idBairro = ?,numero = ?, logradouro = ? "
-            + "where idEndereco = ?";
+    return "update db.MLS.endereco SET logradouro = ?,idBairro = ?,numero = ?, logradouro = ? "
+            + "data = ?, ativo = ? where idEndereco = ?";
   }
 
   @Override
   public String remover () {
-    return "delete from mls" + this.complemento + ".endereco where idEndereco = ?";
+    return "update from db.MLS.endereco SET ativo = 0 where idEndereco = ?";
   }
 }

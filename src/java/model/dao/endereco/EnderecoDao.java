@@ -32,6 +32,8 @@ public class EnderecoDao {
       ps.setLong (3,en.getNumero());
       ps.setLong (4, en.getIdBairro());
       ps.setString (5, en.getComplemento());
+      ps.setDate(6, en.getData());
+      ps.setInt(7, en.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {
@@ -63,9 +65,11 @@ public class EnderecoDao {
         
         en.setIdEndereco (rs.getLong ("idEndereco"));
         en.setLogradouro (rs.getString ("logradouro"));
-        en.setNumero (rs.getLong("numero"));
+        en.setNumero (rs.getInt("numero"));
         en.setIdBairro(rs.getLong("idBairro"));
         en.setComplemento(rs.getString ("complemento"));
+        en.setData(rs.getDate("data"));
+        en.setAtivo(rs.getInt("ativo"));
         resp.add (en);
       }
     } catch (Exception e) {
@@ -103,10 +107,11 @@ public class EnderecoDao {
       if (rs.next ()) {
         en.setIdEndereco (rs.getLong ("idEndereco"));
         en.setLogradouro (rs.getString ("logradouro"));
-        en.setNumero (rs.getLong ("numero"));
+        en.setNumero (rs.getInt ("numero"));
         en.setComplemento(rs.getString("complemento"));
         en.setIdBairro(rs.getLong("idBairro"));
-        
+        en.setData(rs.getDate("data"));
+        en.setAtivo(rs.getInt("ativo"));
       }
     } catch (Exception e) {
       en = null;
@@ -138,6 +143,8 @@ public class EnderecoDao {
       ps.setLong (3, en.getNumero ());
       ps.setLong (4, en.getIdBairro ());
       ps.setString (5, en.getComplemento());
+      ps.setDate(6, en.getData());
+      ps.setInt(7, en.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {
