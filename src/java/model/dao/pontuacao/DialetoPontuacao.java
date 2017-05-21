@@ -1,8 +1,7 @@
 package model.dao.pontuacao;
 
 
-import model.dao.estado.*;
-import model.dao.Dialeto;
+
 import model.dao.Dialeto;
 
 public class DialetoPontuacao implements Dialeto {
@@ -14,30 +13,30 @@ public class DialetoPontuacao implements Dialeto {
   
   @Override
   public String inserir () {
-    return "insert into mls" + this.complemento + ".pontuacao (alimentacao,infraestrutura,limpeza,"
+    return "insert into db.MLS.pontuacao (alimentacao,infraestrutura,limpeza,"
             + "educacao,organizacao,flexibilidade,profissionais,comunicacao, custo) "
-            + "values (?,?,?,?,?,?,?,?,?)";
+            + "values, data, ativo (?,?,?,?,?,?,?,?,?,?,?)";
   }
 
   @Override
   public String listar () {
-    return "select * from mls" + this.complemento + ".pontucao";
+    return "SELECT * FROM dbMLS.pontuacao WHERE ativo = 1";
   }
 
   @Override
   public String encontrar () {
-    return "select * from mls" + this.complemento + ".pontuacao where idPontuacao = ?";
+    return "select * from db.MLS.pontuacao where idPontuacao = ? AND ativo = 1";
   }
 
   @Override
   public String alterar () {
-    return "update mls" + this.complemento + ".pontuacao set alimentacao = ?,infraestrutura = ?, limpeza = ?,"
+    return "update db.MLS.pontuacao set alimentacao = ?,infraestrutura = ?, limpeza = ?,"
             + "educacao = ?, organizacao = ?, flexibilidade = ?, profissionais =?, comunicacao = ?, custo = ?"
-            + "where idPontuacao = ?";
+            + "where idPontuacao = ?, data = ?, ativo = ? WHERE idPontuacao = ?";
   }
 
   @Override
   public String remover () {
-    return "delete from mls" + this.complemento + ".pontuacao where idPontuacao = ?";
+    return "update from db.MLS.pontuacao SET ativo = 0 where idPontuacao = ?";
   }
 }

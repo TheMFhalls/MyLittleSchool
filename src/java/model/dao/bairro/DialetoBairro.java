@@ -1,7 +1,6 @@
 package model.dao.bairro;
 
-import model.dao.cidade.*;
-import model.dao.estado.*;
+
 import model.dao.Dialeto;
 
 public class DialetoBairro implements Dialeto {
@@ -13,26 +12,26 @@ public class DialetoBairro implements Dialeto {
 
     @Override
     public String inserir () {
-      return "insert into mls" + this.complemento + ".bairro (nome,idCidade) values (?, ?)";
+      return "insert into db.MLS.bairro (nome,idCidade,data, ativo) VALUES (?, ?, ?, ?)";
     }
 
     @Override
     public String listar () {
-      return "select * from mls" + this.complemento + ".bairro";
+      return "select * from db.MLS.bairro WHERE ativo = 1";
     }
 
     @Override
     public String encontrar () {
-      return "select * from mls" + this.complemento + ".bairro where idBairro = ?";
+      return "select * from db.MLS.bairro WHERE idBairro = ? AND ativo = 1";
     }
 
     @Override
     public String alterar () {
-      return "update mls" + this.complemento + ".bairro set nome = ?,idCidade = ? where idBairro = ?";
+      return "update db.MLS.bairro SET nome = ?,idCidade = ? , data = ?, ativo = ? where idBairro = ?";
     }
 
     @Override
     public String remover () {
-      return "delete from mls" + this.complemento + ".bairro where idBairro = ?";
+      return "update db.MLS.bairro SET ativo = 0 WHERE idBairro = ?";   
     }
 }

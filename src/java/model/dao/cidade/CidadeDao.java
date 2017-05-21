@@ -30,6 +30,8 @@ public class CidadeDao {
       
       ps.setString (1, c.getNome ());
       ps.setLong (2, c.getIdEstado ());
+      ps.setDate(3, c.getData());
+      ps.setInt(4, c.getAtivo());
    
       
       ps.executeUpdate ();
@@ -63,6 +65,8 @@ public class CidadeDao {
         c.setIdCidade (rs.getLong ("idCidade"));
         c.setNome (rs.getString ("nome"));
         c.setIdEstado(rs.getLong("idEstado"));
+        c.setData(rs.getDate("data"));
+        c.setAtivo(rs.getInt("ativo"));
         resp.add (c);
       }
     } catch (Exception e) {
@@ -101,6 +105,8 @@ public class CidadeDao {
         c.setIdCidade (rs.getLong ("idCidade"));
         c.setNome (rs.getString ("nome"));
         c.setIdEstado(rs.getLong("idEstado"));
+        c.setData(rs.getDate("data"));
+        c.setAtivo(rs.getInt("ativo"));
         
       }
     } catch (Exception e) {
@@ -131,6 +137,8 @@ public class CidadeDao {
       ps.setString (1, c.getNome ());
       ps.setLong (2, c.getIdCidade ());
       ps.setLong (3, c.getIdEstado ());
+      ps.setDate(4, c.getData());
+      ps.setInt(4,c.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {

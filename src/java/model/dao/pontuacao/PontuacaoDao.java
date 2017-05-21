@@ -27,15 +27,17 @@ public class PontuacaoDao {
       String sql_insert = dialeto.inserir ();
       ps = this.connection.prepareStatement (sql_insert);
       
-      ps.setLong (1, p.getAlimentacao ());
-      ps.setLong (2, p.getInfraestrutura ());
-      ps.setLong (3, p.getLimpeza());
-      ps.setLong (4, p.getEducacao());
-      ps.setLong (5, p.getOrganizacao());
-      ps.setLong (6, p.getFlexibilidade());
-      ps.setLong (7, p.getProfissionais());
-      ps.setLong (8, p.getComunicacao());
-      ps.setLong (9, p.getCusto());
+      ps.setDouble(1, p.getAlimentacao());
+      ps.setDouble (2, p.getInfraestrutura ());
+      ps.setDouble (3, p.getLimpeza());
+      ps.setDouble (4, p.getEducacao());
+      ps.setDouble (5, p.getOrganizacao());
+      ps.setDouble (6, p.getFlexibilidade());
+      ps.setDouble (7, p.getProfissionais());
+      ps.setDouble (8, p.getComunicacao());
+      ps.setDouble (9, p.getCusto());
+      ps.setDate(10, p.getData());
+      ps.setInt(11, p.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {
@@ -75,6 +77,8 @@ public class PontuacaoDao {
          p.setProfissionais(rs.getLong("profissionais"));
          p.setComunicacao(rs.getLong("comunicacao"));
          p.setCusto(rs.getLong("custo"));
+         p.setData(rs.getDate("Data"));
+         p.setAtivo(rs.getInt("Ativo"));
          
          resp.add (p);
       }
@@ -121,6 +125,8 @@ public class PontuacaoDao {
          p.setProfissionais(rs.getLong("profissionais"));
          p.setComunicacao(rs.getLong("comunicacao"));
          p.setCusto(rs.getLong("custo"));
+         p.setData(rs.getDate("Data"));
+         p.setAtivo(rs.getInt("Ativo"));
       }
     } catch (Exception e) {
       p = null;
@@ -147,16 +153,18 @@ public class PontuacaoDao {
       String sql_update = dialeto.alterar (); 
       ps = this.connection.prepareStatement (sql_update);
       
-      ps.setLong (1, p.getAlimentacao ());
-      ps.setLong (2, p.getInfraestrutura ());
-      ps.setLong (3, p.getLimpeza());
-      ps.setLong (4, p.getEducacao());
-      ps.setLong (5, p.getOrganizacao());
-      ps.setLong (6, p.getFlexibilidade());
-      ps.setLong (7, p.getProfissionais());
-      ps.setLong (8, p.getComunicacao());
-      ps.setLong (9, p.getCusto());
-      ps.setLong (10,p.getIdPontuacao());
+      ps.setDouble (1, p.getAlimentacao ());
+      ps.setDouble (2, p.getInfraestrutura ());
+      ps.setDouble (3, p.getLimpeza());
+      ps.setDouble (4, p.getEducacao());
+      ps.setDouble (5, p.getOrganizacao());
+      ps.setDouble (6, p.getFlexibilidade());
+      ps.setDouble (7, p.getProfissionais());
+      ps.setDouble (8, p.getComunicacao());
+      ps.setDouble (9, p.getCusto());
+      ps.setDouble (10,p.getIdPontuacao());
+      ps.setDate   (11,p.getData());
+      ps.setInt    (12,p.getAtivo());
       
       ps.executeUpdate ();
     } catch (Exception e) {
