@@ -10,89 +10,34 @@
     <body>
         <header>
             <section id="admin-bar">    
-                <div class="container">
-                    <div class="login col-xs-12 col-md-offset-9 col-md-3 text-right">
-                        <span>
-                            <a href="#">LOGIN</a>
-                            <a href="#">CADASTRAR</a>
-                        </span>
-                    </div>
-                </div>
             </section>
-            <section id="header">  
-                <div class="container">
-                    <div class="row">
-                        <div class="logo col-xs-12 col-md-3">
-                            <img src="img/logo.png">
-                        </div>
-                        <div class="menu col-xs-12 col-md-9">
-                            <ul>
-                                <li>
-                                    <a href="#">ITEM DE MENU</a>
-                                </li>
-                                <li>
-                                    <a href="#">ITEM DE MENU</a>
-                                </li>
-                                <li>
-                                    <a href="#">ITEM DE MENU</a>
-                                </li>
-                                <li>
-                                    <a href="#">ITEM DE MENU</a>
-                                </li>
-                                <li>
-                                    <a href="#">ITEM DE MENU</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <section id="header">
             </section>
         </header>
-        <main>
-            <form id="estado-insert" method="POST" action="/MyLittleSchool/estado">
-                <div>
-                    <input type="text" name="nome" placeholder="Nome" />
+        <main>  
+            <div>
+                <div class="container">
+                    <div class="regiao">
+                        <div class="container-regiao col-xs-12 col-md-offset-2 col-md-8">
+                            <div class="row">
+                                <div class="select col-xs-12 col-md-6">
+                                    <select name="select-estado">
+                                    </select>
+                                </div>
+                                <div class="select col-xs-12 col-md-6">
+                                    <select name="select-cidade">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <input type="text" name="uf" placeholder="UF" />
-                </div>
-                <div>
-                    <input type="submit" value="CADASTRAR" />
-                </div>
-            </form>
-            <form id="estado-update" method="PUT" action="/MyLittleSchool/estado/1">
-                <div>
-                    <input type="text" name="nome" placeholder="Nome" />
-                </div>
-                <div>
-                    <input type="text" name="uf" placeholder="UF" />
-                </div>
-                <div>
-                    <input type="submit" value="ATUALIZAR" />
-                </div>
-            </form>
-            <form id="estado-delete" method="DELETE" action="/MyLittleSchool/estado/1">
-                <div>
-                    <input type="submit" value="EXCLUIR" />
-                </div>
-            </form>
+            </div>               
         </main>
         <footer>
             <script src="js/jquery-3.2.1.min.js"></script>
             <script src="js/jquery.serializeObject.js"></script>
             <script src="js/script.js"></script>
         </footer>
-        <!--
-        $.ajax({
-            url: "/MyLittleSchool/estado",
-            contentType: 'application/json',
-            type: "GET",
-            dataType: "json"
-        }).done(function(data){
-            console.log(data);
-        }).fail(function(){
-            alert("Erro ...");
-        });
-        -->
     </body>
 </html>

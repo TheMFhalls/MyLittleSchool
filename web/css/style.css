@@ -4,7 +4,7 @@
 517683932152347,0.6820428702458925,1,0.48818944835807354,0.6121923977960673,0.8,0.
 11055155868645886&swatchOrder=0,1,2,3,4*/
 
-html {
+body {
     background: url(../img/fundo-child.jpg);
     background-size: 100%;
 }
@@ -21,39 +21,38 @@ img{
 }
 
 header {
-    min-height: 100px;
     background-color: rgb(255, 255, 181);
     box-shadow: 0px 0px 10px grey;
 }
 
-#admin-bar{
+#admin-bar > div{
     min-height: 40px;
-    background-color: #3e3e3e;
+    background-color: #9CCC1C;
 }
 
-#admin-bar .login span{
+#admin-bar > div .login span{
     line-height: 40px;
 }
 
-#admin-bar .login span a{
+#admin-bar > div .login span a{
     color: white;
     font-weight: bolder;
 }
 
-#header .logo img{
+#header > div .logo img{
     width: 50%;
 }
 
-#header .menu ul{
+#header > div .menu ul{
     display: flex;
 }
 
-#header .menu ul li{    
+#header > div .menu ul li{    
     display: flex;
     width: 100%;
 }
 
-#header .menu ul li a{
+#header > div .menu ul li a{
     color: #3e3e3e;
     font-weight: bolder;    
     margin-top: 50px;

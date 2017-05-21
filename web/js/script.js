@@ -1,10 +1,16 @@
-function formAjaxSubmit(identificador, sucesso){
+function formAjaxSubmit(identificador, sucesso){   
+    if($(identificador).attr("setted") === "ready"){        
+        return;
+    }else{
+        $(identificador).attr("setted", "ready");
+    }
     $(identificador).on("submit", function(event){
         event.preventDefault();
         var elemento = $(this);
         var jsonForm = elemento.serializeObject();
         $.ajax({
-            url: elemento.attr("action"),
+            url: window.location.href+
+            elemento.attr("action"),
             contentType: 'application/json',
             type: elemento.attr("method"),
             data: JSON.stringify(jsonForm),
@@ -17,7 +23,7 @@ function formAjaxSubmit(identificador, sucesso){
     });
 };
 
-window.onload = function(){
+function reload(){
     formAjaxSubmit("#estado-update", function(data){
        console.log(data);
     });
@@ -27,4 +33,14 @@ window.onload = function(){
     formAjaxSubmit("#estado-delete", function(data){
        console.log(data);
     });
+}
+
+function view(){
+    $("#admin-bar").load(window.location.href+
+        "view/header/admin-bar.html");
+}
+
+window.onload = function(){
+    setInterval(reload, 500);
+    view();
 };
