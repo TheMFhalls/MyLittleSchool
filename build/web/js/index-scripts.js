@@ -1,5 +1,4 @@
 function selectEstados(elemento){
-    $(elemento).attr("disabled", "disabled");
     $.ajax({
         url: window.location.href+
         "estado",

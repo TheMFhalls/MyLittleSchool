@@ -27,7 +27,7 @@ public class ControladorCidade extends HttpServlet {
                 logica.executa(request, response);
 
                 Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("estado"));
+                String data = json.toJson(request.getAttribute("cidade"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);
@@ -37,11 +37,11 @@ public class ControladorCidade extends HttpServlet {
                 logica.executa(request, response);
 
                 Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("estados"));
+                String data = json.toJson(request.getAttribute("cidades"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(data);                 
-            }                      
+                response.getWriter().write(data);
+            }                  
         }catch(Exception e){
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }

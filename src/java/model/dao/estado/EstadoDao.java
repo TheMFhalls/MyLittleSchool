@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import model.bean.Cidade;
 import model.dao.Dialeto;
 import model.jdbc.DataBase;
 
@@ -47,6 +48,47 @@ public class EstadoDao{
         }  
     }
 
+    public List encontrarCidadeEstado(long id){
+        DialetoEstado dialetoEspecifico = new DialetoEstado();
+        List resp = new LinkedList ();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {         
+            String sql_select = dialetoEspecifico.encontrarCidadeEstado();
+            
+            ps = this.connection.prepareStatement (sql_select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery ();
+
+            while (rs.next()) {
+                Cidade c = new Cidade ();
+
+                c.setIdCidade (rs.getLong ("idCidade"));
+                c.setNome (rs.getString ("nome"));
+                c.setIdEstado(rs.getLong("idEstado"));
+                c.setData((java.sql.Date) rs.getDate("data"));
+                c.setAtivo(rs.getInt("ativo"));
+                
+                resp.add(c);
+            }
+        } catch (SQLException e) {
+            resp = null;
+            System.out.println ("Erro: classe EstadoDao - não foi possível ler os dados dos Estados a partir do BD!");
+        } finally {
+            try {
+                if (rs != null) 
+                    rs.close ();      
+                if (ps != null)
+                    ps.close ();
+            } catch (SQLException e) {
+                System.out.println (exceptionError);
+            }
+        }  
+
+        return resp;
+    }
+    
     public List listar () {
         List resp = new LinkedList ();
         Statement stmt = null;

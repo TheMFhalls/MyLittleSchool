@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import controller.logica.Logica;
 import controller.logica.estado.AtualizarEstado;
 import controller.logica.estado.CadastrarEstado;
+import controller.logica.estado.EncontrarCidadeEstado;
 import controller.logica.estado.EncontrarEstado;
 import controller.logica.estado.ExcluirEstado;
 import controller.logica.estado.ExibirEstado;
@@ -31,6 +32,20 @@ public class ControladorEstado extends HttpServlet {
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);
+            }else if(pathParts.length > 4){
+                switch(pathParts[4]){
+                    case "cidade":
+                        Logica logica = (Logica) new EncontrarCidadeEstado();
+
+                        logica.executa(request, response);
+
+                        Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
+                        String data = json.toJson(request.getAttribute("cidades"));
+                        response.setContentType("application/json");
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write(data);
+                    break;
+                }                
             }else{
                 Logica logica = (Logica) new ExibirEstado();
 

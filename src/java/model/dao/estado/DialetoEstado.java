@@ -30,4 +30,8 @@ public class DialetoEstado implements Dialeto {
     public String remover(){
       return "UPDATE dbMLS.estado SET ativo = ? WHERE idEstado = ?";
     }
+    
+    public String encontrarCidadeEstado(){
+        return "select * from dbMLS.cidade where idEstado = ? AND ativo = 1";
+    }
 }

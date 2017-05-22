@@ -9,6 +9,11 @@ body {
     background-size: 100%;
 }
 
+body a:hover{
+    text-decoration: none;
+    opacity: 0.6;
+}
+
 .container{
     max-width: 1100px;
     margin: auto;
@@ -37,6 +42,12 @@ header {
 #admin-bar > div .login span a{
     color: white;
     font-weight: bolder;
+    border-right: 1px solid white;
+    padding: 0px 10px;
+}
+
+#admin-bar > div .login span a:last-child{
+    border: 0px;
 }
 
 #header > div .logo img{
@@ -62,4 +73,23 @@ main > div .regiao .container-regiao {
     background-color: rgba(255, 61, 166, 0.40);
     border-radius: 20px;
     padding: 30px 15px;
+}
+
+@media(max-width: 767px){
+    #admin-bar > div .login span a{
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        border: 0px;
+        text-align: center;
+    }
+}
+@media(min-width: 768px) AND (max-width: 991px){
+    
+}
+@media(max-width: 992px) AND (max-width: 1199px){
+    
+}
+@media(min-width: 1200px){
+    
 }

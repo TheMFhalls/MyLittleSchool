@@ -2,7 +2,6 @@ package controller.logica.cidade;
 
 
 import controller.logica.Logica;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Cidade;

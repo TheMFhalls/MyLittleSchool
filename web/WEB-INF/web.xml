@@ -10,6 +10,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter-mapping>
         <filter-name>FiltroParametros</filter-name>
         <url-pattern>/estado/*</url-pattern>
+        <url-pattern>/cidade/*</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -19,6 +20,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter-mapping>
         <filter-name>FiltroConexaoBancoDados</filter-name>
         <url-pattern>/estado/*</url-pattern>
+        <url-pattern>/cidade/*</url-pattern>
     </filter-mapping>
     
     <servlet>
@@ -28,5 +30,13 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet-mapping>
         <servlet-name>ControladorEstado</servlet-name>
         <url-pattern>/estado/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ControladorCidade</servlet-name>
+        <servlet-class>controller.ControladorCidade</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorCidade</servlet-name>
+        <url-pattern>/cidade/*</url-pattern>
     </servlet-mapping>
 </web-app>

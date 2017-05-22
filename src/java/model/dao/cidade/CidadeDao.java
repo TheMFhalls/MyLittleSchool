@@ -2,8 +2,8 @@
 package model.dao.cidade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,16 +35,14 @@ public class CidadeDao {
    
       
       ps.executeUpdate ();
-    } catch (Exception e) {
+    } catch (SQLException e) {
       System.out.println ("Erro: classe UsuarioDao - não foi possível inserir o usuário no BD.");
-      e.printStackTrace ();
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
       }
     }  
   }
@@ -65,30 +63,28 @@ public class CidadeDao {
         c.setIdCidade (rs.getLong ("idCidade"));
         c.setNome (rs.getString ("nome"));
         c.setIdEstado(rs.getLong("idEstado"));
-        c.setData(rs.getDate("data"));
+        c.setData((java.sql.Date) rs.getDate("data"));
         c.setAtivo(rs.getInt("ativo"));
         resp.add (c);
       }
-    } catch (Exception e) {
+    } catch (SQLException e) {
       resp = null;
       System.out.println ("Erro: classe UsuarioDao - não foi possível ler os dados dos usuário a partir do BD!");
-      e.printStackTrace ();
     } finally {
       try {
         if (rs != null) 
           rs.close ();      
         if (stmt != null)
           stmt.close ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível fechar os manipuladores do BD!");
-        e.printStackTrace ();
       }
     }  
     
     return resp;
   }
   
-  public Cidade encontrar (long id) {
+  public Cidade encontrar(long id) {
     Cidade c = new Cidade ();
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -105,23 +101,21 @@ public class CidadeDao {
         c.setIdCidade (rs.getLong ("idCidade"));
         c.setNome (rs.getString ("nome"));
         c.setIdEstado(rs.getLong("idEstado"));
-        c.setData(rs.getDate("data"));
+        c.setData((java.sql.Date) rs.getDate("data"));
         c.setAtivo(rs.getInt("ativo"));
         
       }
-    } catch (Exception e) {
+    } catch (SQLException e) {
       c = null;
       System.out.println ("Erro: classe UsuarioDao - usuário não encontrado.");
-      e.printStackTrace ();
     } finally {
       try {
         if (rs != null) 
           rs.close ();      
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
       }
     }  
     return c;
@@ -141,16 +135,14 @@ public class CidadeDao {
       ps.setInt(4,c.getAtivo());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
+    } catch (SQLException e) {
       System.out.println ("Erro: classe UsuarioDao - não foi possível atualizar o usuário no BD.");
-      e.printStackTrace ();
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
       }
     }  
   }
@@ -165,16 +157,14 @@ public class CidadeDao {
       ps.setLong (1, c.getIdCidade ());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
+    } catch (SQLException e) {
       System.out.println ("Erro: classe UsuarioDao - não foi possível excluir o usuário no BD.");
-      e.printStackTrace ();
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
+      } catch (SQLException e) {
         System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
       }
     }  
   }
