@@ -4,6 +4,10 @@
 517683932152347,0.6820428702458925,1,0.48818944835807354,0.6121923977960673,0.8,0.
 11055155868645886&swatchOrder=0,1,2,3,4*/
 
+.text-shadow{
+    text-shadow: 1px 1px 1px black;
+}
+
 body {
     background: url(../img/fundo-child.jpg);
     background-size: 100%;

@@ -1,7 +1,5 @@
 package controller.logica.bairro;
 
-
-
 import com.google.gson.Gson;
 import controller.logica.Logica;
 import javax.servlet.http.HttpServletRequest;
