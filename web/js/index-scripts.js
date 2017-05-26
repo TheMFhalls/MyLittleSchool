@@ -6,6 +6,9 @@ function selectEstados(elemento){
         type: "GET",
         dataType: "json"
     }).done(function(data){
+        $(elemento).append($('<option>', {
+            text: "-- Selecione seu estado --"
+        }));
         $.each(data, function(){
             var item = $(this)[0];
             $(elemento).append($('<option>', {

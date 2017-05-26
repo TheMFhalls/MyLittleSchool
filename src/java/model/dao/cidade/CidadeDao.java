@@ -1,4 +1,3 @@
-
 package model.dao.cidade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.util.List;
 import model.bean.Cidade;
 
 import model.dao.Dialeto;
+import model.dao.estado.DialetoCidade;
 import model.jdbc.DataBase;
 
 public class CidadeDao {
@@ -168,6 +168,47 @@ public class CidadeDao {
       }
     }  
   }
+  
+    public List encontrarBairroCidade(long id){
+        DialetoCidade dialetoEspecifico = new DialetoCidade();
+        List resp = new LinkedList ();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {         
+            String sql_select = dialetoEspecifico.encontrarBairroCidade();
+            
+            ps = this.connection.prepareStatement (sql_select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery ();
+
+            while (rs.next()) {
+                Cidade c = new Cidade ();
+
+                c.setIdCidade (rs.getLong ("idCidade"));
+                c.setNome (rs.getString ("nome"));
+                c.setIdEstado(rs.getLong("idEstado"));
+                c.setData((java.sql.Date) rs.getDate("data"));
+                c.setAtivo(rs.getInt("ativo"));
+                
+                resp.add(c);
+            }
+        } catch (SQLException e) {
+            resp = null;
+            System.out.println ("Erro: classe EstadoDao - não foi possível ler os dados dos Estados a partir do BD!");
+        } finally {
+            try {
+                if (rs != null) 
+                    rs.close ();      
+                if (ps != null)
+                    ps.close ();
+            } catch (SQLException e) {
+                System.out.println (exceptionError);
+            }
+        }  
+
+        return resp;
+    }
 
   public Dialeto getDialeto () {
     return dialeto;
