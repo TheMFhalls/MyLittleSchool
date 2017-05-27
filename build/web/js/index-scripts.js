@@ -6,14 +6,21 @@ function selectEstados(elemento){
         type: "GET",
         dataType: "json"
     }).done(function(data){
-        $.each(data, function(){
-            var item = $(this)[0];
+        if(data.length){
             $(elemento).append($('<option>', {
-                value: item.idEstado,
-                text: item.nome
+                text: "-- Selecione seu estado --"
             }));
-        });
-        $(elemento).removeAttr("disabled");
+            
+            $.each(data, function(){
+                var item = $(this)[0];
+                $(elemento).append($('<option>', {
+                    value: item.idEstado,
+                    text: item.nome
+                }));
+            });
+            
+            $(elemento).removeAttr("disabled");
+        }        
     }).fail(function(){
         alert("Erro ao selecionar os estados!");
     });
