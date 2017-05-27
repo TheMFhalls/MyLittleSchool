@@ -5,8 +5,7 @@ import model.dao.Dialeto;
 public class DialetoCidade implements Dialeto {
   String complemento = "";
 
-  public DialetoCidade (String complemento) {
-    this.complemento = complemento;
+  public DialetoCidade () {
   }
   
   @Override
@@ -33,4 +32,8 @@ public class DialetoCidade implements Dialeto {
   public String remover () {
     return "update from dbMLS.cidade SET ativo = 0 where idCidade = ?";
   } 
+  
+  public String encontrarBairroCidade(){
+    return "select * from dbMLS.bairro where idCidade = ? AND ativo = 1";
+  }
 }
