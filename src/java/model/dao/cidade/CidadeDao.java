@@ -9,7 +9,6 @@ import java.util.List;
 import model.bean.Cidade;
 
 import model.dao.Dialeto;
-import model.dao.estado.DialetoCidade;
 import model.jdbc.DataBase;
 
 public class CidadeDao {
@@ -18,7 +17,7 @@ public class CidadeDao {
 
   public CidadeDao (DataBase db) {
     this.connection = db.getConexao ();
-    this.dialeto = new DialetoCidade (db.getComplementoDialeto ());
+    this.dialeto = new DialetoCidade();
   }
   
   public void inserir (Cidade c) {
@@ -203,7 +202,7 @@ public class CidadeDao {
                 if (ps != null)
                     ps.close ();
             } catch (SQLException e) {
-                System.out.println (exceptionError);
+                System.out.println (e.getMessage());
             }
         }  
 

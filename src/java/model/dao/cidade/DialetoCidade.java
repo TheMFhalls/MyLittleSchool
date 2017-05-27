@@ -5,8 +5,7 @@ import model.dao.Dialeto;
 public class DialetoCidade implements Dialeto {
   String complemento = "";
 
-  public DialetoCidade (String complemento) {
-    this.complemento = complemento;
+  public DialetoCidade () {
   }
   
   @Override
