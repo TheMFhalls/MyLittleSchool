@@ -1,10 +1,9 @@
 package controller;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import controller.logica.Logica;
 import controller.logica.cidade.AtualizarCidade;
 import controller.logica.cidade.CadastrarCidade;
+import controller.logica.cidade.EncontrarBairroCidade;
 import controller.logica.cidade.EncontrarCidade;
 import controller.logica.cidade.ExcluirCidade;
 import controller.logica.cidade.ExibirCidade;
@@ -18,29 +17,31 @@ public class ControladorCidade extends Controlador {
     protected void doGet (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
          try{
-            String[] pathParts = (String[]) request.getAttribute("pathParts");
-
+            String[] pathParts = (String[]) request.getAttribute("pathParts"); 
+            
             if(pathParts.length == 4){
                 Logica logica = (Logica) new EncontrarCidade();
 
                 logica.executa(request, response);
 
-                Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("cidade"));
-                response.setContentType("application/json");
-                response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(data);
+                outJson(request, response, "cidade");  
+            }else if(pathParts.length > 4){
+                switch(pathParts[4]){
+                    case "bairro":
+                        Logica logica = (Logica) new EncontrarBairroCidade();
+
+                        logica.executa(request, response);
+
+                        outJson(request, response, "bairros");
+                    break;
+                }                
             }else{
                 Logica logica = (Logica) new ExibirCidade();
 
                 logica.executa(request, response);
 
-                Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("cidades"));
-                response.setContentType("application/json");
-                response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(data);
-            }                  
+                outJson(request, response, "cidades");                
+            }
         }catch(Exception e){
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
@@ -54,11 +55,7 @@ public class ControladorCidade extends Controlador {
             
             logica.executa(request, response);
             
-            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(data);
+            outJson(request, response, "cidade");  
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
@@ -72,11 +69,7 @@ public class ControladorCidade extends Controlador {
             
             logica.executa(request, response);
 
-            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(data);
+            outJson(request, response, "cidade");  
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
@@ -90,11 +83,7 @@ public class ControladorCidade extends Controlador {
             
             logica.executa(request, response);
 
-            Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(data);
+            outJson(request, response, "cidade");  
         }catch(Exception e){
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }

@@ -22,8 +22,7 @@ public class FiltroParametros implements Filter {
     public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
         throws IOException, ServletException {    
         try{
-            String[] pathParts;        
-            pathParts = getPathParts((HttpServletRequest) request);
+            String[] pathParts = getPathParts((HttpServletRequest) request);
             String data = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
             
             request.setAttribute("pathParts", pathParts);

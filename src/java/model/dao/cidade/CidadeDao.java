@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import model.bean.Bairro;
 import model.bean.Cidade;
 
 import model.dao.Dialeto;
@@ -182,15 +183,15 @@ public class CidadeDao {
             rs = ps.executeQuery ();
 
             while (rs.next()) {
-                Cidade c = new Cidade ();
+                Bairro b = new Bairro();
 
-                c.setIdCidade (rs.getLong ("idCidade"));
-                c.setNome (rs.getString ("nome"));
-                c.setIdEstado(rs.getLong("idEstado"));
-                c.setData((java.sql.Date) rs.getDate("data"));
-                c.setAtivo(rs.getInt("ativo"));
+                b.setIdBairro (rs.getLong ("idBairro"));
+                b.setNome (rs.getString ("nome"));
+                b.setIdCidade(rs.getLong("idCidade"));
+                b.setData((java.sql.Date) rs.getDate("data"));
+                b.setAtivo(rs.getInt("ativo"));
                 
-                resp.add(c);
+                resp.add(b);
             }
         } catch (SQLException e) {
             resp = null;

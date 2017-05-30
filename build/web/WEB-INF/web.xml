@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     
     <filter>
         <filter-name>FiltroParametros</filter-name>
@@ -11,12 +10,13 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <filter-name>FiltroParametros</filter-name>
         <url-pattern>/estado/*</url-pattern>
         <url-pattern>/cidade/*</url-pattern>
+        <url-pattern>/bairro/*</url-pattern>
     </filter-mapping>
-
+    
     <filter>
         <filter-name>FiltroConexaoBancoDados</filter-name>
         <filter-class>filter.FiltroConexaoBancoDados</filter-class>
-    </filter>
+    </filter>    
     <filter-mapping>
         <filter-name>FiltroConexaoBancoDados</filter-name>
         <url-pattern>/estado/*</url-pattern>
@@ -31,6 +31,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>ControladorEstado</servlet-name>
         <url-pattern>/estado/*</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>ControladorCidade</servlet-name>
         <servlet-class>controller.ControladorCidade</servlet-class>
@@ -39,4 +40,14 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-name>ControladorCidade</servlet-name>
         <url-pattern>/cidade/*</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorBairro</servlet-name>
+        <servlet-class>controller.ControladorBairro</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorBairro</servlet-name>
+        <url-pattern>/bairro/*</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
