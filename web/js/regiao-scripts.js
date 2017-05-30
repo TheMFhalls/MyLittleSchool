@@ -102,6 +102,21 @@ function selectBairros(elemento){
     });
 }
 
+function enabledButton($el){
+    var $button = $("#regionButton");
+    var idBairro = $el.val();
+    $button
+        .removeAttr("disabled")
+        .attr("idBairro", idBairro);
+}
+
+function selectedRegion($el){
+    var idBairro = $el.attr("idBairro");
+    $.cookie('idBairro', idBairro);
+    $("main").load(window.location.href+
+        "view/main/listagem-escolas-por-bairro.html");
+}
+
 $(document).ready(function(){
     selectEstados("select[name='select-estado']");
 });
