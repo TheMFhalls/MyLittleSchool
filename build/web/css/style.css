@@ -8,6 +8,10 @@
     text-shadow: 1px 1px 1px black;
 }
 
+.item-example{
+    display: none;
+}
+
 body {
     background: url(../img/fundo-child.jpg);
     background-size: 100%;
