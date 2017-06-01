@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import model.bean.Endereco;
 import model.bean.Escola;
 import model.dao.Dialeto;
 import model.jdbc.DataBase;
@@ -184,6 +185,50 @@ public class EscolaDao{
                 System.out.println (exceptionError);
             }
         }  
+    }
+    
+    public List encontrarEnderecoEscola(long id){
+        DialetoEscola dialetoEspecifico = new DialetoEscola();
+        List resp = new LinkedList ();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {         
+            String sql_select = dialetoEspecifico.encontrarEnderecoEscola();
+
+            ps = this.connection.prepareStatement (sql_select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery ();
+
+            while (rs.next()) {
+                Endereco e = new Endereco();
+
+                e.setIdEndereco (rs.getLong ("idEndereco"));
+                e.setLogradouro (rs.getString ("logradouro"));
+                e.setNumero (rs.getInt ("numero"));
+                e.setComplemento (rs.getString ("complemento"));
+                e.setIdBairro (rs.getLong ("idBairro"));
+                e.setIdEndereco (rs.getLong ("idEndereco"));
+                e.setData((java.sql.Date) rs.getDate("data"));
+                e.setAtivo(rs.getInt("ativo"));
+
+                resp.add(e);
+            }
+        } catch (SQLException e) {
+            resp = null;
+            System.out.println ("Erro: classe EstadoDao - não foi possível ler os dados dos Estados a partir do BD!");
+        } finally {
+            try {
+                if (rs != null) 
+                    rs.close ();      
+                if (ps != null)
+                    ps.close ();
+            } catch (SQLException e) {
+                System.out.println (e.getMessage());
+            }
+        }  
+
+        return resp;
     }
 
     public Dialeto getDialeto () {

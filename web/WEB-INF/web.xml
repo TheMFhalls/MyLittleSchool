@@ -11,6 +11,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/estado/*</url-pattern>
         <url-pattern>/cidade/*</url-pattern>
         <url-pattern>/bairro/*</url-pattern>
+        <url-pattern>/escola/*</url-pattern>
     </filter-mapping>
     
     <filter>
@@ -21,7 +22,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <filter-name>FiltroConexaoBancoDados</filter-name>
         <url-pattern>/estado/*</url-pattern>
         <url-pattern>/cidade/*</url-pattern>
-        <url-pattern>/bairro/*</url-pattern>
+        <url-pattern>/bairro/*</url-pattern>        
+        <url-pattern>/escola/*</url-pattern>
     </filter-mapping>
     
     <servlet>
@@ -49,6 +51,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
     <servlet-mapping>
         <servlet-name>ControladorBairro</servlet-name>
         <url-pattern>/bairro/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorEscola</servlet-name>
+        <servlet-class>controller.ControladorEscola</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorEscola</servlet-name>
+        <url-pattern>/escola/*</url-pattern>
     </servlet-mapping>
     
 </web-app>
