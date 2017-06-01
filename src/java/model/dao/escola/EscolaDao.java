@@ -29,14 +29,14 @@ public class EscolaDao{
         try{      
             String sql_insert = dialeto.inserir();
             ps = this.connection.prepareStatement(sql_insert);
-            ps.setInt(1,el.getIdEscola());
+            ps.setLong(1, el.getIdEscola());
             
-            ps.setInt(1, el.getIdEscola());
+            ps.setLong(1, el.getIdEscola());
             ps.setString(2, el.getCnpj());
             ps.setString(3, el.getNomeFantasia());
             ps.setString(4, el.getRazaoSocial());
-            ps.setInt(5, el.getIdPontuacao());
-            ps.setInt(6, el.getIdEndereco());      
+            ps.setLong(5, el.getIdPontuacao());
+            ps.setLong(6, el.getIdEndereco());      
             ps.setDate(7, (java.sql.Date) el.getData());
             ps.setInt(8, el.getAtivo());
 
@@ -141,12 +141,12 @@ public class EscolaDao{
             String sql_update = dialeto.alterar (); 
             ps = this.connection.prepareStatement (sql_update);
 
-            ps.setInt(1, el.getIdEscola());
+            ps.setLong(1, el.getIdEscola());
             ps.setString(2, el.getCnpj());
             ps.setString(3, el.getNomeFantasia());
             ps.setString(4, el.getRazaoSocial());
-            ps.setInt(5, el.getIdPontuacao());
-            ps.setInt(6, el.getIdEndereco());      
+            ps.setLong(5, el.getIdPontuacao());
+            ps.setLong(6, el.getIdEndereco());      
             ps.setDate(7, (java.sql.Date) el.getData());
             ps.setInt(8, el.getAtivo());
 

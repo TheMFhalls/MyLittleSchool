@@ -83,6 +83,22 @@ main > div .regiao .container-regiao {
     padding: 30px 15px;
 }
 
+main > div .itens-escola .item-escola .item-escola-container {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border: 1px solid #FF3DA6;
+    border-radius: 20px;
+}
+
+main > div .itens-escola .item-escola .item-escola-container .imagem img{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+main > div .itens-escola .item-escola .item-escola-container .informacoes{
+    padding: 10px;
+}
+
 @media(max-width: 767px){
     #admin-bar > div .login span a{
         display: block;
