@@ -18,6 +18,6 @@ public class EncontrarEnderecoEscola implements Logica {
         EscolaDao dao = new EscolaDao(db); //Inversão de controle e injeção de dependência.
         List<Endereco> endereco = dao.encontrarEnderecoEscola(Long.parseLong(pathParts[3]));
 
-        request.setAttribute("endereco", endereco); 
+        request.setAttribute("endereco", endereco);
     }  
 }

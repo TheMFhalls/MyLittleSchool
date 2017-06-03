@@ -208,7 +208,6 @@ public class EscolaDao{
                 e.setNumero (rs.getInt ("numero"));
                 e.setComplemento (rs.getString ("complemento"));
                 e.setIdBairro (rs.getLong ("idBairro"));
-                e.setIdEndereco (rs.getLong ("idEndereco"));
                 e.setData((java.sql.Date) rs.getDate("data"));
                 e.setAtivo(rs.getInt("ativo"));
 
