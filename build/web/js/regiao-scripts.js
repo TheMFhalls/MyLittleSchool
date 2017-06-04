@@ -4,7 +4,13 @@ function selectEstados(elemento){
         "estado",
         contentType: 'application/json',
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        beforeSend: function(){
+            $("#ajax-img").html("<img class='ajax-img' src='img/ajax-loader.gif' />");
+        },
+        complete: function(){
+            $("#ajax-img").html("");
+        }
     }).done(function(data){
         if(data.length){            
             $(elemento).append($('<option>', {
@@ -44,7 +50,13 @@ function selectCidades(elemento){
         "estado/"+idEstado+"/cidade",
         contentType: 'application/json',
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        beforeSend: function(){
+            $("#ajax-img").html("<img class='ajax-img' src='img/ajax-loader.gif' />");
+        },
+        complete: function(){
+            $("#ajax-img").html("");
+        }
     }).done(function(data){       
         if(data.length){
             destino.append($('<option>', {
@@ -80,7 +92,13 @@ function selectBairros(elemento){
         "cidade/"+idCidade+"/bairro",
         contentType: 'application/json',
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        beforeSend: function(){
+            $("#ajax-img").html("<img class='ajax-img' src='img/ajax-loader.gif' />");
+        },
+        complete: function(){
+            $("#ajax-img").html("");
+        }
     }).done(function(data){       
         if(data.length){
             destino.append($('<option>', {
@@ -113,8 +131,11 @@ function enabledButton($el){
 function selectedRegion($el){
     var idBairro = $el.attr("idBairro");
     $.cookie('idBairro', idBairro);
+    $("#ajax-img").html("<img class='ajax-img' src='img/ajax-loader.gif' />");
     $("main").load(window.location.href+
-        "view/main/listagem-escolas-por-bairro.html");
+    "view/main/listagem-escolas-por-bairro.html", function(){
+        $("#ajax-img").html("");
+    });
 }
 
 $(document).ready(function(){

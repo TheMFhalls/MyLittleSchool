@@ -8,6 +8,12 @@
     text-shadow: 1px 1px 1px black;
 }
 
+.ajax-img{
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+
 .item-example{
     display: none;
 }
@@ -75,6 +81,13 @@ header {
     color: #3e3e3e;
     font-weight: bolder;    
     margin-top: 50px;
+}
+
+section#ajax-img img{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
 }
 
 main > div .regiao .container-regiao {

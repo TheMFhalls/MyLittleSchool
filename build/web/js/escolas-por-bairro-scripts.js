@@ -6,7 +6,17 @@ function mostrarEndereco(idEscola){
         "escola/"+idEscola+"/endereco",
         contentType: 'application/json',
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        beforeSend: function(){
+            $itemEscola.find("button")
+                .html("<img class='ajax-img' src='img/ajax-loader.gif' />")
+                .attr("disabled", true);
+        },
+        complete: function(){
+            $itemEscola.find("button")
+                .html("Mostrar Endereço")
+                .attr("disabled", false);
+        }
     }).done(function(data){
         if(data.length){
             var data = data[0];
@@ -27,7 +37,13 @@ function showEscolas(idBairro){
         "bairro/"+idBairro+"/escola",
         contentType: 'application/json',
         type: "GET",
-        dataType: "json"
+        dataType: "json",
+        beforeSend: function(){
+            $("#ajax-img").html("<img class='ajax-img' src='img/ajax-loader.gif' />");
+        },
+        complete: function(){
+            $("#ajax-img").html("");
+        }
     }).done(function(data){
         if(data.length){
             $.each(data, function(){
