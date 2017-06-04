@@ -5,6 +5,7 @@ import controller.logica.escola.AtualizarEscola;
 import controller.logica.escola.CadastrarEscola;
 import controller.logica.escola.EncontrarEnderecoEscola;
 import controller.logica.escola.EncontrarEscola;
+import controller.logica.escola.EncontrarPontuacaoEscola;
 import controller.logica.escola.ExcluirEscola;
 import controller.logica.escola.ExibirEscola;
 import java.io.IOException;
@@ -28,11 +29,18 @@ public class ControladorEscola extends Controlador {
             }else if(pathParts.length > 4){
                 switch(pathParts[4]){
                     case "endereco":
-                        Logica logica = (Logica) new EncontrarEnderecoEscola();
+                        Logica logicaEnderecos = (Logica) new EncontrarEnderecoEscola();
 
-                        logica.executa(request, response);
+                        logicaEnderecos.executa(request, response);
 
                         outJson(request, response, "endereco");
+                    break;
+                    case "pontuacao":
+                        Logica logicaPontuacao = (Logica) new EncontrarPontuacaoEscola();
+
+                        logicaPontuacao.executa(request, response);
+
+                        outJson(request, response, "pontuacao");
                     break;
                 }                
             }else{

@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import model.bean.Endereco;
 import model.bean.Escola;
+import model.bean.Pontuacao;
 import model.dao.Dialeto;
 import model.jdbc.DataBase;
 
@@ -230,6 +231,54 @@ public class EscolaDao{
         return resp;
     }
 
+    public List encontrarPontuacaoEscola(long id){
+        DialetoEscola dialetoEspecifico = new DialetoEscola();
+        List resp = new LinkedList ();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {         
+            String sql_select = dialetoEspecifico.encontrarPontuacaoEscola();
+
+            ps = this.connection.prepareStatement (sql_select);
+            ps.setLong(1, id);
+            rs = ps.executeQuery ();
+
+            while (rs.next()) {
+                Pontuacao p = new Pontuacao();
+
+                p.setIdPontuacao (rs.getLong ("idPontuacao"));
+                p.setAlimentacao (rs.getDouble ("alimentacao"));
+                p.setInfraestrutura (rs.getDouble ("infraestrutura"));
+                p.setLimpeza (rs.getDouble ("limpeza"));
+                p.setEducacao (rs.getDouble ("educacao"));
+                p.setOrganizacao (rs.getDouble ("organizacao"));
+                p.setFlexibilidade (rs.getDouble ("flexibilidade"));
+                p.setProfissionais (rs.getDouble ("profissionais"));
+                p.setComunicacao (rs.getDouble ("comunicacao"));
+                p.setCusto (rs.getDouble ("custo"));
+                p.setData((java.sql.Date) rs.getDate("data"));
+                p.setAtivo(rs.getInt("ativo"));
+
+                resp.add(p);
+            }
+        } catch (SQLException e) {
+            resp = null;
+            System.out.println ("Erro: classe EstadoDao - não foi possível ler os dados dos Estados a partir do BD!");
+        } finally {
+            try {
+                if (rs != null) 
+                    rs.close ();      
+                if (ps != null)
+                    ps.close ();
+            } catch (SQLException e) {
+                System.out.println (e.getMessage());
+            }
+        }  
+
+        return resp;
+    }
+    
     public Dialeto getDialeto () {
         return dialeto;
     }

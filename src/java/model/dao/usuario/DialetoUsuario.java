@@ -1,37 +1,33 @@
 package model.dao.usuario;
 
 import model.dao.Dialeto;
-import model.dao.Dialeto;
 
 public class DialetoUsuario implements Dialeto {
-  String complemento = "";
+    public DialetoUsuario() {
+    }
 
-  public DialetoUsuario (String complemento) {
-    this.complemento = complemento;
-  }
-  
-  @Override
-  public String inserir () {
-    return "insert into mls" + this.complemento + ".usuario (nome, email, senha, data_nascimento) values (?, ?, ?, ?)";
-  }
+    @Override
+    public String inserir(){
+      return "INSERT INTO dbMLS.usuario(login, senha, email, data, ativo) VALUES(?, ?, ?, ?, ?)";
+    }
 
-  @Override
-  public String listar () {
-    return "select * from mls" + this.complemento + ".usuario";
-  }
+    @Override
+    public String listar(){
+      return "SELECT * FROM dbMLS.usuario WHERE ativo = 1 ORDER BY login";
+    }
 
-  @Override
-  public String encontrar () {
-    return "select * from mls" + this.complemento + ".usuario where id = ?";
-  }
+    @Override
+    public String encontrar(){
+      return "SELECT * FROM dbMLS.usuario WHERE idUsuario = ? AND ativo = 1";
+    }
 
-  @Override
-  public String alterar () {
-    return "update mls" + this.complemento + ".usuario set nome = ?, email = ?, senha = ?, data_nascimento = ? where id = ?";
-  }
+    @Override
+    public String alterar(){
+      return "UPDATE dbMLS.usuario SET login = ?, senha = ?, email = ?, data = ?, ativo = ? WHERE idUsuario = ?";
+    }
 
-  @Override
-  public String remover () {
-    return "delete from mls" + this.complemento + ".usuario where id = ?";
-  }
+    @Override
+    public String remover(){
+      return "UPDATE dbMLS.usuario SET ativo = ? WHERE idUsuario = ?";
+    }
 }

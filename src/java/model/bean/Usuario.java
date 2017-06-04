@@ -1,63 +1,63 @@
 package model.bean;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Usuario {
-  private long id;
-  private String nome;
-  private String email;
-  private String senha;
-  private String[] generos; 
-  private LocalDate data_nascimento;
+    private long    idUsuario;
+    private String  login;
+    private String  senha;
+    private String  email;
+    private Date    data;
+    private int     ativo;
+    
+    public Usuario(){
+    }
 
-  public Usuario () {
-  }
+    public long getIdUsuario() {
+        return idUsuario;
+    }
 
-  public String getNome () {
-    return nome;
-  }
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-  public void setNome (String nome) {
-    this.nome = nome;
-  }
+    public String getLogin() {
+        return login;
+    }
 
-  public String getEmail () {
-    return email;
-  }
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
-  public void setEmail (String email) {
-    this.email = email;
-  }
+    public String getSenha() {
+        return senha;
+    }
 
-  public String getSenha () {
-    return senha;
-  }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-  public void setSenha (String senha) {
-    this.senha = senha;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String[] getGeneros () {
-    return generos;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    } 
 
-  public void setGeneros (String[] generos) {
-    this.generos = generos;
-  }
+    public Date getData() {
+        return data;
+    }
 
-  public LocalDate getData_nascimento () {
-    return data_nascimento;
-  }
+    public void setData(Date data) {
+        this.data = data;
+    }
 
-  public void setData_nascimento (LocalDate data_nascimento) {
-    this.data_nascimento = data_nascimento;
-  }
+    public int getAtivo() {
+        return ativo;
+    }
 
-  public long getId () {
-    return id;
-  }
-
-  public void setId (long id) {
-    this.id = id;
-  }
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }    
 }

@@ -32,9 +32,14 @@ public class DialetoEscola implements Dialeto {
     }
     
     public String encontrarEnderecoEscola(){
-      return "SELECT en.idEndereco idEndereco, en.idBairro idBairro, en.data data, en.ativo ativo, "
-      +"en.logradouro logradouro , en.numero numero , en.complemento complemento FROM endereco en "
-      +"JOIN escola es ON en.idEndereco = es.idEndereco WHERE es.idEscola = ? AND es.ativo = 1 AND "
-      +"en.ativo = 1";
+      return "SELECT en.* FROM endereco en JOIN escola es "
+      +"ON en.idEndereco = es.idEndereco WHERE es.idEscola = ? "
+      +"AND es.ativo = 1 AND en.ativo = 1";
+    }
+    
+    public String encontrarPontuacaoEscola(){
+      return "SELECT po.* FROM pontuacao po JOIN escola es "
+      +"ON es.idPontuacao = po.idPontuacao WHERE es.idEscola = ? "
+      +"AND es.ativo = 1 AND po.ativo = 1";
     }
 }
