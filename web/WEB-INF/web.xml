@@ -12,6 +12,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/cidade/*</url-pattern>
         <url-pattern>/bairro/*</url-pattern>
         <url-pattern>/escola/*</url-pattern>
+        <url-pattern>/usuario/*</url-pattern>
     </filter-mapping>
     
     <filter>
@@ -23,7 +24,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/estado/*</url-pattern>
         <url-pattern>/cidade/*</url-pattern>
         <url-pattern>/bairro/*</url-pattern>        
-        <url-pattern>/escola/*</url-pattern>
+        <url-pattern>/escola/*</url-pattern>      
+        <url-pattern>/usuario/*</url-pattern>
     </filter-mapping>
     
     <servlet>
@@ -33,6 +35,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
     <servlet-mapping>
         <servlet-name>ControladorEstado</servlet-name>
         <url-pattern>/estado/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <servlet-class>controller.ControladorUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <url-pattern>/usuario/*</url-pattern>
     </servlet-mapping>
     
     <servlet>

@@ -1,13 +1,11 @@
 package controller.logica.usuario;
 
-
-import controller.logica.estado.*;
 import com.google.gson.Gson;
 import controller.logica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Estado;
-import model.dao.estado.EstadoDao;
+import model.bean.Usuario;
+import model.dao.usuario.UsuarioDao;
 import model.jdbc.DataBase;
 
 public class CadastrarUsuario implements Logica {
@@ -20,15 +18,15 @@ public class CadastrarUsuario implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
         
         Gson gson = new Gson();
-        Estado estado = gson.fromJson(data, Estado.class);
+        Usuario usuario = gson.fromJson(data, Usuario.class);
         
-        estado.setData(dataAtual);
-        estado.setAtivo(1);
+        usuario.setData(dataAtual);
+        usuario.setAtivo(1);
 
-        EstadoDao dao = new EstadoDao(db); 
+        UsuarioDao dao = new UsuarioDao(db); 
         
-        dao.inserir(estado);
+        dao.inserir(usuario);
 
-        request.setAttribute("estado", estado); 
+        request.setAttribute("usuario", usuario); 
     }
 }  

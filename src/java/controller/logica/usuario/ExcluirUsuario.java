@@ -1,11 +1,10 @@
 package controller.logica.usuario;
 
-import controller.logica.estado.*;
 import controller.logica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Estado;
-import model.dao.estado.EstadoDao;
+import model.bean.Usuario;
+import model.dao.usuario.UsuarioDao;
 import model.jdbc.DataBase;
 
 public class ExcluirUsuario implements Logica {
@@ -14,16 +13,14 @@ public class ExcluirUsuario implements Logica {
         throws Exception{
         DataBase db = (DataBase) request.getAttribute("db");
         String[] pathParts = (String[]) request.getAttribute("pathParts");
-        java.util.Date date = new java.util.Date();
-        java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
-        EstadoDao dao = new EstadoDao(db);
-        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        UsuarioDao dao = new UsuarioDao(db);
+        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[3]));
 
-        estadoAtual.setAtivo(0);  
+        usuarioAtual.setAtivo(0);  
 
-        dao.remover(estadoAtual);
+        dao.remover(usuarioAtual);
 
-        request.setAttribute("estado", estadoAtual);  
+        request.setAttribute("usuario", usuarioAtual);  
     }
 }  

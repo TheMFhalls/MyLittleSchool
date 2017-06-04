@@ -1,13 +1,11 @@
 package controller.logica.usuario;
 
-
-import controller.logica.estado.*;
 import com.google.gson.Gson;
 import controller.logica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Estado;
-import model.dao.estado.EstadoDao;
+import model.bean.Usuario;
+import model.dao.usuario.UsuarioDao;
 import model.jdbc.DataBase;
 
 public class AtualizarUsuario implements Logica {
@@ -21,19 +19,20 @@ public class AtualizarUsuario implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
         
         Gson gson = new Gson();
-        Estado estadoNovo = gson.fromJson(data, Estado.class);
+        Usuario usuarioNovo = gson.fromJson(data, Usuario.class);
 
-        EstadoDao dao = new EstadoDao(db);
-        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        UsuarioDao dao = new UsuarioDao(db);
+        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[3]));
         
-        estadoAtual.setIdEstado(Long.parseLong(pathParts[3]));
-        estadoAtual.setNome(estadoNovo.getNome());  
-        estadoAtual.setUf(estadoNovo.getUf());  
-        estadoAtual.setData(dataAtual);
-        estadoAtual.setAtivo(1);  
+        usuarioAtual.setIdUsuario(Long.parseLong(pathParts[3]));
+        usuarioAtual.setLogin(usuarioNovo.getLogin());  
+        usuarioAtual.setSenha(usuarioNovo.getSenha());
+        usuarioAtual.setEmail(usuarioNovo.getEmail());  
+        usuarioAtual.setData(dataAtual);
+        usuarioAtual.setAtivo(1);  
         
-        dao.alterar(estadoAtual);
+        dao.alterar(usuarioAtual);
 
-        request.setAttribute("estado", estadoAtual); 
+        request.setAttribute("usuario", usuarioAtual); 
     }
 }  

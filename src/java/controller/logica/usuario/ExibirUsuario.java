@@ -1,12 +1,11 @@
 package controller.logica.usuario;
 
-import controller.logica.estado.*;
 import controller.logica.Logica;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Estado;
-import model.dao.estado.EstadoDao;
+import model.bean.Usuario;
+import model.dao.usuario.UsuarioDao;
 import model.jdbc.DataBase;
 
 public class ExibirUsuario implements Logica {
@@ -15,9 +14,9 @@ public class ExibirUsuario implements Logica {
         throws Exception {
         DataBase db = (DataBase) request.getAttribute("db");
 
-        EstadoDao dao = new EstadoDao(db); //Inversão de controle e injeção de dependência.
-        List<Estado> estados = dao.listar();
+        UsuarioDao dao = new UsuarioDao(db); //Inversão de controle e injeção de dependência.
+        List<Usuario> usuarios = dao.listar();
 
-        request.setAttribute("estados", estados);   
+        request.setAttribute("usuarios", usuarios);   
     }  
 }
