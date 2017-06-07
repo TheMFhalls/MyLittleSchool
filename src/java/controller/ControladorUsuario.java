@@ -1,12 +1,6 @@
 package controller;
 
 import controller.logica.Logica;
-import controller.logica.estado.AtualizarEstado;
-import controller.logica.estado.CadastrarEstado;
-import controller.logica.estado.EncontrarCidadeEstado;
-import controller.logica.estado.EncontrarEstado;
-import controller.logica.estado.ExcluirEstado;
-import controller.logica.estado.ExibirEstado;
 import controller.logica.usuario.AtualizarUsuario;
 import controller.logica.usuario.CadastrarUsuario;
 import controller.logica.usuario.EncontrarUsuario;
