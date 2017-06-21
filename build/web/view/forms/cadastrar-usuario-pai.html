@@ -31,16 +31,40 @@
                             placeholder="Informe seu CPF" maxlength="100" />
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <input name="email" id="email" class="form-control mb-20" 
-                            placeholder="Informe seu email" maxlength="100" />
+                            <input name="nome" id="nome" class="form-control mb-20" 
+                            placeholder="Informe seu nome" maxlength="255" />
+                        </div>
+                    </fieldset>
+                </form>
+                <form id="endereco-insert" method="POST" action="pessoa">
+                    <fieldset>
+                        <legend class="col-xs-12">Dados de endereço</legend>
+                        <div class="col-xs-12 col-md-6">
+                            <select class="form-control mb-20" name="select-estado" disabled="disabled"
+                            onchange="javascript:selectCidades($(this));">
+                            </select>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <input name="senha" id="senha" class="form-control mb-20" 
-                            placeholder="Informe sua senha" maxlength="100" />
+                            <select class="form-control mb-20" name="select-cidade" disabled="disabled" 
+                            onchange="javascript:selectBairros($(this));">
+                            </select>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <input name="confirmar-senha" id="confirmar-senha" class="form-control mb-20" 
-                            placeholder="Confirme sua senha" maxlength="100" />
+                            <select class="form-control mb-20" name="select-bairro" disabled="disabled"
+                            onchange="javascript:enabledButton($(this));">
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <input name="logradouro" id="logradouro" class="form-control mb-20" 
+                            placeholder="Informe sua rua" maxlength="100" />
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <input name="numero" id="numero" class="form-control mb-20" 
+                            placeholder="Informe seu numero" maxlength="11" />
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <input name="complemento" id="complemento" class="form-control mb-20" 
+                            placeholder="Informe seu complemento" maxlength="255" />
                         </div>
                     </fieldset>
                 </form>
@@ -49,3 +73,4 @@
     </div>
 </div>
 <script src="js/forms/cadastrar-usuario-pai-scripts.js"></script>
+<script src="js/main/regiao-scripts.js"></script>
