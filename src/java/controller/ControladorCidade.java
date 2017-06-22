@@ -46,7 +46,7 @@ public class ControladorCidade extends Controlador {
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
-
+    /*
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -88,4 +88,5 @@ public class ControladorCidade extends Controlador {
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
+    */
 }

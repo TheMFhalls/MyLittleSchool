@@ -46,7 +46,7 @@ public class ControladorEstado extends Controlador {
           System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
-
+    /*
     @Override
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -60,7 +60,8 @@ public class ControladorEstado extends Controlador {
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
-
+    */
+    /*
     @Override
     protected void doDelete (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -74,7 +75,8 @@ public class ControladorEstado extends Controlador {
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
-
+    */
+    /*
     @Override
     protected void doPut (HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -88,4 +90,5 @@ public class ControladorEstado extends Controlador {
             System.out.println ("Erro: classe ControladorEstado - não foi possível executar a lógica de negócio.");
         }
     }
+    */
 }
