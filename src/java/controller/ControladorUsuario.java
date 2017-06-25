@@ -25,7 +25,7 @@ public class ControladorUsuario extends Controlador {
                 
                 outJson(request, response, "usuario");
             }else if(pathParts.length > 4){
-                switch(pathParts[4]){}                
+                //switch(pathParts[4]){}                
             }else{
                 Logica logica = (Logica) new ExibirUsuario();
 

@@ -29,9 +29,9 @@ public class FiltroParametros implements Filter {
             request.setAttribute("data", data);
             
             chain.doFilter(request, response);
-        }catch(IOException | ServletException e){
+        }catch(ServletException e){
             System.out.println("Erro: classe FiltroParametros - não foi reculperar os parametros da requisição.");
-        }        
+        }      
     }
 
     @Override

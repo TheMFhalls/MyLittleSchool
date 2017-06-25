@@ -27,21 +27,18 @@ public class ControladorEscola extends Controlador {
 
                 outJson(request, response, "escola");
             }else if(pathParts.length > 4){
-                switch(pathParts[4]){
-                    case "endereco":
-                        Logica logicaEnderecos = (Logica) new EncontrarEnderecoEscola();
+                if("endereco".equals(pathParts[4])){
+                    Logica logicaEnderecos = (Logica) new EncontrarEnderecoEscola();
 
-                        logicaEnderecos.executa(request, response);
+                    logicaEnderecos.executa(request, response);
 
-                        outJson(request, response, "endereco");
-                    break;
-                    case "pontuacao":
-                        Logica logicaPontuacao = (Logica) new EncontrarPontuacaoEscola();
+                    outJson(request, response, "endereco");
+                }else if("pontuacao".equals(pathParts[4])){
+                    Logica logicaPontuacao = (Logica) new EncontrarPontuacaoEscola();
 
-                        logicaPontuacao.executa(request, response);
+                    logicaPontuacao.executa(request, response);
 
-                        outJson(request, response, "pontuacao");
-                    break;
+                    outJson(request, response, "pontuacao");
                 }                
             }else{
                 Logica logica = (Logica) new ExibirEscola();

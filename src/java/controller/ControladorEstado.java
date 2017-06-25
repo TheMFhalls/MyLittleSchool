@@ -26,14 +26,12 @@ public class ControladorEstado extends Controlador {
                 
                 outJson(request, response, "estado");
             }else if(pathParts.length > 4){
-                switch(pathParts[4]){
-                    case "cidade":
-                        Logica logica = (Logica) new EncontrarCidadeEstado();
+                if("cidade".equals(pathParts[4])){
+                    Logica logica = (Logica) new EncontrarCidadeEstado();
 
-                        logica.executa(request, response);
+                    logica.executa(request, response);
 
-                        outJson(request, response, "cidades");
-                    break;
+                    outJson(request, response, "cidades");
                 }                
             }else{
                 Logica logica = (Logica) new ExibirEstado();

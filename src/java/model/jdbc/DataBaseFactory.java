@@ -4,14 +4,11 @@ public class DataBaseFactory {
   public static DataBase getDataBase (String SGBD, String usuario, String senha, String banco){ 
     DataBase db;
     
-    switch (SGBD) {
-      case "MySql": 
+    if("MySql".equals(SGBD)) {
         db = new MySql (usuario, senha, banco);
-        break;
-      case "SqlServer":
+    }else if("SqlServer".equals(SGBD)){
         db = new SqlServer (usuario, senha, banco);
-        break;
-      default:
+    }else{
         db = null;
     }
     return db;
