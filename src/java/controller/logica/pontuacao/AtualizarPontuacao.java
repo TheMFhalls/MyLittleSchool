@@ -23,9 +23,9 @@ public class AtualizarPontuacao implements Logica {
         Pontuacao pontuacaoNova = gson.fromJson(data, Pontuacao.class);
 
         PontuacaoDao dao = new PontuacaoDao(db);
-        Pontuacao pontuacaoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pontuacao pontuacaoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        pontuacaoAtual.setIdPontuacao(Long.parseLong(pathParts[3]));
+        pontuacaoAtual.setIdPontuacao(Long.parseLong(pathParts[2]));
         pontuacaoAtual.setAlimentacao(pontuacaoNova.getAlimentacao());   
         pontuacaoAtual.setComunicacao(pontuacaoNova.getComunicacao());
         pontuacaoAtual.setCusto(pontuacaoNova.getCusto());

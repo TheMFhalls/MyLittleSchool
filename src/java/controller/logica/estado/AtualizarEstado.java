@@ -23,9 +23,9 @@ public class AtualizarEstado implements Logica {
         Estado estadoNovo = gson.fromJson(data, Estado.class);
 
         EstadoDao dao = new EstadoDao(db);
-        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        estadoAtual.setIdEstado(Long.parseLong(pathParts[3]));
+        estadoAtual.setIdEstado(Long.parseLong(pathParts[2]));
         estadoAtual.setNome(estadoNovo.getNome());  
         estadoAtual.setUf(estadoNovo.getUf());  
         estadoAtual.setData(dataAtual);

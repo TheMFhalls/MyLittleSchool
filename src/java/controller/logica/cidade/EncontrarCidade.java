@@ -16,7 +16,7 @@ public class EncontrarCidade implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         CidadeDao dao = new CidadeDao(db); //Inversão de controle e injeção de dependência.
-        Cidade cidade = dao.encontrar(Long.parseLong(pathParts[3]));
+        Cidade cidade = dao.encontrar(Long.parseLong(pathParts[2]));
 
         request.setAttribute("cidade", cidade);   
     }  

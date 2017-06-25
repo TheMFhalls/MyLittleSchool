@@ -15,7 +15,7 @@ public class ExcluirUsuario implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         UsuarioDao dao = new UsuarioDao(db);
-        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         usuarioAtual.setAtivo(0);  
 

@@ -22,7 +22,7 @@ public class AtualizarBairro implements Logica {
         Bairro bairroNovo = gson.fromJson(data, Bairro.class);
 
         BairroDao dao = new BairroDao(db);
-        Bairro bairroAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Bairro bairroAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
         bairroAtual.setIdBairro(bairroNovo.getIdBairro());
         bairroAtual.setIdCidade(bairroNovo.getIdCidade());

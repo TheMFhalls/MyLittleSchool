@@ -17,7 +17,7 @@ public class ExcluirEstado implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         EstadoDao dao = new EstadoDao(db);
-        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Estado estadoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         estadoAtual.setAtivo(0);  
 

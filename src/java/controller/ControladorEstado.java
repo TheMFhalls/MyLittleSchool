@@ -19,14 +19,14 @@ public class ControladorEstado extends Controlador {
          try{
             String[] pathParts = (String[]) request.getAttribute("pathParts");
 
-            if(pathParts.length == 4){
+            if(pathParts.length == 3){
                 Logica logica = (Logica) new EncontrarEstado();
 
                 logica.executa(request, response);                
                 
                 outJson(request, response, "estado");
-            }else if(pathParts.length > 4){
-                if("cidade".equals(pathParts[4])){
+            }else if(pathParts.length > 3){
+                if("cidade".equals(pathParts[3])){
                     Logica logica = (Logica) new EncontrarCidadeEstado();
 
                     logica.executa(request, response);

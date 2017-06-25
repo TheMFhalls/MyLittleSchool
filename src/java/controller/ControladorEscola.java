@@ -20,20 +20,20 @@ public class ControladorEscola extends Controlador {
          try{
             String[] pathParts = (String[]) request.getAttribute("pathParts");
             
-            if(pathParts.length == 4){
+            if(pathParts.length == 3){
                 Logica logica = (Logica) new EncontrarEscola();
 
                 logica.executa(request, response);
 
                 outJson(request, response, "escola");
-            }else if(pathParts.length > 4){
-                if("endereco".equals(pathParts[4])){
+            }else if(pathParts.length > 3){
+                if("endereco".equals(pathParts[3])){
                     Logica logicaEnderecos = (Logica) new EncontrarEnderecoEscola();
 
                     logicaEnderecos.executa(request, response);
 
                     outJson(request, response, "endereco");
-                }else if("pontuacao".equals(pathParts[4])){
+                }else if("pontuacao".equals(pathParts[3])){
                     Logica logicaPontuacao = (Logica) new EncontrarPontuacaoEscola();
 
                     logicaPontuacao.executa(request, response);

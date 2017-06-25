@@ -17,7 +17,7 @@ public class ExcluirCidade implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         CidadeDao dao = new CidadeDao(db);
-        Cidade cidadeAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Cidade cidadeAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         cidadeAtual.setAtivo(0);  
 

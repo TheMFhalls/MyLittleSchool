@@ -22,9 +22,9 @@ public class AtualizarUsuario implements Logica {
         Usuario usuarioNovo = gson.fromJson(data, Usuario.class);
 
         UsuarioDao dao = new UsuarioDao(db);
-        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Usuario usuarioAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        usuarioAtual.setIdUsuario(Long.parseLong(pathParts[3]));
+        usuarioAtual.setIdUsuario(Long.parseLong(pathParts[2]));
         usuarioAtual.setLogin(usuarioNovo.getLogin());  
         usuarioAtual.setSenha(usuarioNovo.getSenha());
         usuarioAtual.setEmail(usuarioNovo.getEmail());  

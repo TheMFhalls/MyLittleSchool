@@ -21,7 +21,7 @@ public class ControladorPessoa extends HttpServlet {
          try{
             String[] pathParts = (String[]) request.getAttribute("pathParts");
 
-            if(pathParts.length == 4){
+            if(pathParts.length == 3){
                 Logica logica = (Logica) new EncontrarPessoa();
 
                 logica.executa(request, response);

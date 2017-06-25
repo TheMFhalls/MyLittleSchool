@@ -18,7 +18,7 @@ public class ExcluirEscola implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         EscolaDao dao = new EscolaDao(db);
-        Escola escolaAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Escola escolaAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         escolaAtual.setAtivo(0);  
 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <filter>
+        <filter-name>FiltroParametros</filter-name>
+        <filter-class>filter.FiltroParametros</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroParametros</filter-name>
+        <url-pattern>/estado/*</url-pattern>
+        <url-pattern>/cidade/*</url-pattern>
+        <url-pattern>/bairro/*</url-pattern>
+        <url-pattern>/escola/*</url-pattern>
+        <url-pattern>/usuario/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>FiltroConexaoBancoDados</filter-name>
+        <filter-class>filter.FiltroConexaoBancoDados</filter-class>
+    </filter>    
+    <filter-mapping>
+        <filter-name>FiltroConexaoBancoDados</filter-name>
+        <url-pattern>/estado/*</url-pattern>
+        <url-pattern>/cidade/*</url-pattern>
+        <url-pattern>/bairro/*</url-pattern>        
+        <url-pattern>/escola/*</url-pattern>      
+        <url-pattern>/usuario/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>FiltroSessao</filter-name>
+        <filter-class>filter.FiltroSessao</filter-class>
+    </filter>    
+    <filter-mapping>
+        <filter-name>FiltroSessao</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorEstado</servlet-name>
+        <servlet-class>controller.ControladorEstado</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorEstado</servlet-name>
+        <url-pattern>/estado/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <servlet-class>controller.ControladorUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <url-pattern>/usuario/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorCidade</servlet-name>
+        <servlet-class>controller.ControladorCidade</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorCidade</servlet-name>
+        <url-pattern>/cidade/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorBairro</servlet-name>
+        <servlet-class>controller.ControladorBairro</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorBairro</servlet-name>
+        <url-pattern>/bairro/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorEscola</servlet-name>
+        <servlet-class>controller.ControladorEscola</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorEscola</servlet-name>
+        <url-pattern>/escola/*</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

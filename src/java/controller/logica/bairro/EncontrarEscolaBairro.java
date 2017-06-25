@@ -16,7 +16,7 @@ public class EncontrarEscolaBairro implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         BairroDao dao = new BairroDao(db); //Inversão de controle e injeção de dependência.
-        List<Escola> escola = dao.encontrarEscolaBairro(Long.parseLong(pathParts[3]));
+        List<Escola> escola = dao.encontrarEscolaBairro(Long.parseLong(pathParts[2]));
 
         request.setAttribute("escolas", escola); 
     }  

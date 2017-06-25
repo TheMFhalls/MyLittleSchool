@@ -18,14 +18,14 @@ public class ControladorUsuario extends Controlador {
          try{
             String[] pathParts = (String[]) request.getAttribute("pathParts");
 
-            if(pathParts.length == 4){
+            if(pathParts.length == 3){
                 Logica logica = (Logica) new EncontrarUsuario();
 
                 logica.executa(request, response);                
                 
                 outJson(request, response, "usuario");
-            }else if(pathParts.length > 4){
-                //switch(pathParts[4]){}                
+            }else if(pathParts.length > 3){
+                //switch(pathParts[3]){}                
             }else{
                 Logica logica = (Logica) new ExibirUsuario();
 

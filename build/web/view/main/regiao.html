@@ -1,0 +1,38 @@
+<div>
+    <div class="container">
+        <div class="regiao">
+            <div class="container-regiao col-xs-12 col-md-offset-2 col-md-8 mt-xs-30 mt-md-120">
+                <div class="row">                    
+                    <h3>
+                        <p class="text col-xs-12 mb-20 text-center text-white text-shadow">
+                            Informe seu Estado e Cidade para procurar-mos a 
+                            creche que melhor se adequa ao seu filho!
+                        </p>
+                    </h3>                    
+                    <div class="select col-xs-12 col-md-6 mb-20">
+                        <select class="form-control" name="select-estado" disabled="disabled"
+                        onchange="javascript:selectCidades($(this));">
+                        </select>
+                    </div>
+                    <div class="select col-xs-12 col-md-6 mb-20">
+                        <select class="form-control" name="select-cidade" disabled="disabled" 
+                        onchange="javascript:selectBairros($(this));">
+                        </select>
+                    </div>
+                    <div class="select col-xs-12 mb-20">
+                        <select class="form-control" name="select-bairro" disabled="disabled"
+                        onchange="javascript:enabledButton($(this));">
+                        </select>
+                    </div>
+                    <div class="select col-xs-12">
+                        <button class="btn btn-success col-xs-12" disabled="disabled"
+                        id="regionButton" onclick="javascript:selectedRegion($(this));">
+                            Entrar <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        </button>
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/main/regiao-scripts.js"></script>

@@ -24,9 +24,9 @@ public class AtualizarPessoa implements Logica {
         Pessoa pessoaNova = gson.fromJson(data, Pessoa.class);
 
         PessoaDao dao = new PessoaDao(db);
-        Pessoa pessoaAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pessoa pessoaAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        pessoaAtual.setIdPessoa(Long.parseLong(pathParts[3]));
+        pessoaAtual.setIdPessoa(Long.parseLong(pathParts[2]));
         pessoaAtual.setNome(pessoaNova.getNome());
         pessoaAtual.setCpf(pessoaNova.getCpf());
         pessoaAtual.setEmail(pessoaNova.getEmail());

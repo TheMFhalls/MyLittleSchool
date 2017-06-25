@@ -21,7 +21,7 @@ public class ControladorEndereco extends HttpServlet {
          try{
             String[] pathParts = (String[]) request.getAttribute("pathParts");
 
-            if(pathParts.length == 4){
+            if(pathParts.length == 3){
                 Logica logica = (Logica) new EncontrarEndereco();
 
                 logica.executa(request, response);

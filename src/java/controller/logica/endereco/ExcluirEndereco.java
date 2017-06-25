@@ -18,7 +18,7 @@ public class ExcluirEndereco implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         EnderecoDao dao = new EnderecoDao(db);
-        Endereco enderecoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Endereco enderecoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         enderecoAtual.setAtivo(0);  
 

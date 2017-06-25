@@ -18,7 +18,7 @@ public class ExcluirPessoa implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         PessoaDao dao = new PessoaDao(db);
-        Pessoa pessoaAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pessoa pessoaAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         pessoaAtual.setAtivo(0);  
 

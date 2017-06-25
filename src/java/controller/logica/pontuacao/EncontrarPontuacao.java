@@ -17,7 +17,7 @@ public class EncontrarPontuacao implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         PontuacaoDao dao = new PontuacaoDao(db); //Inversão de controle e injeção de dependência.
-        Pontuacao pontuacao = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pontuacao pontuacao = dao.encontrar(Long.parseLong(pathParts[2]));
 
         request.setAttribute("pontuacao", pontuacao);   
     }  

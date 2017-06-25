@@ -15,7 +15,7 @@ public class EncontrarPessoa implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         PessoaDao dao = new PessoaDao(db); //Inversão de controle e injeção de dependência.
-        Pessoa pessoa = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pessoa pessoa = dao.encontrar(Long.parseLong(pathParts[2]));
 
         request.setAttribute("pesssoa", pessoa);   
     }  

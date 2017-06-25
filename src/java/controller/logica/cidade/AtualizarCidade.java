@@ -24,9 +24,9 @@ public class AtualizarCidade implements Logica {
         Cidade cidadeNova = gson.fromJson(data, Cidade.class);
 
         CidadeDao dao = new CidadeDao(db);
-        Cidade cidadeAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Cidade cidadeAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        cidadeAtual.setIdCidade(Long.parseLong(pathParts[3]));
+        cidadeAtual.setIdCidade(Long.parseLong(pathParts[2]));
         cidadeAtual.setNome(cidadeNova.getNome());  
         cidadeAtual.setIdEstado(cidadeNova.getIdEstado());  
         cidadeAtual.setData(dataAtual);

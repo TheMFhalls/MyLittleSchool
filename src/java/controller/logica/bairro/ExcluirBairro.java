@@ -17,7 +17,7 @@ public class ExcluirBairro implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         BairroDao dao = new BairroDao(db);
-        Bairro bairroAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Bairro bairroAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         bairroAtual.setAtivo(0);  
 

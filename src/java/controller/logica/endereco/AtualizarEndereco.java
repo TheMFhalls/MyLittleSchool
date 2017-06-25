@@ -24,7 +24,7 @@ public class AtualizarEndereco implements Logica {
         Endereco enderecoNovo = gson.fromJson(data, Endereco.class);
 
         EnderecoDao dao = new EnderecoDao(db);
-        Endereco enderecoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Endereco enderecoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
         enderecoAtual.setIdEndereco(enderecoNovo.getIdEndereco());
         enderecoAtual.setIdBairro(enderecoNovo.getIdBairro());

@@ -16,7 +16,7 @@ public class EncontrarEnderecoEscola implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         EscolaDao dao = new EscolaDao(db); //Inversão de controle e injeção de dependência.
-        List<Endereco> endereco = dao.encontrarEnderecoEscola(Long.parseLong(pathParts[3]));
+        List<Endereco> endereco = dao.encontrarEnderecoEscola(Long.parseLong(pathParts[2]));
 
         request.setAttribute("endereco", endereco);
     }  

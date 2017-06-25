@@ -15,7 +15,7 @@ public class EncontrarEstado implements Logica {
         String[] pathParts = (String[]) request.getAttribute("pathParts");
 
         EstadoDao dao = new EstadoDao(db); //Inversão de controle e injeção de dependência.
-        Estado estado = dao.encontrar(Long.parseLong(pathParts[3]));
+        Estado estado = dao.encontrar(Long.parseLong(pathParts[2]));
 
         request.setAttribute("estado", estado);   
     }  

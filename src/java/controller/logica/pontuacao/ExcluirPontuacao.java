@@ -18,7 +18,7 @@ public class ExcluirPontuacao implements Logica {
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
 
         PontuacaoDao dao = new PontuacaoDao(db);
-        Pontuacao pontuacaoAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Pontuacao pontuacaoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
 
         pontuacaoAtual.setAtivo(0);  
 

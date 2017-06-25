@@ -24,7 +24,7 @@ public class AtualizarEscola implements Logica {
         Escola escolaNova = gson.fromJson(data, Escola.class);
 
         EscolaDao dao = new EscolaDao(db);
-        Escola escolaAtual = dao.encontrar(Long.parseLong(pathParts[3]));
+        Escola escolaAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
         escolaAtual.setIdEscola(escolaNova.getIdEscola());
         escolaAtual.setCnpj(escolaNova.getCnpj());
