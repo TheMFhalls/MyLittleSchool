@@ -28,6 +28,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/usuario/*</url-pattern>
     </filter-mapping>
     
+    <filter>
+        <filter-name>FiltroSessao</filter-name>
+        <filter-class>filter.FiltroSessao</filter-class>
+    </filter>    
+    <filter-mapping>
+        <filter-name>FiltroSessao</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
     <servlet>
         <servlet-name>ControladorEstado</servlet-name>
         <servlet-class>controller.ControladorEstado</servlet-class>
