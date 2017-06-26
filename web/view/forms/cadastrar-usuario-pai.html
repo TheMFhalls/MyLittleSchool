@@ -15,15 +15,17 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <input name="senha" id="senha" class="form-control mb-20" 
-                            placeholder="Informe sua senha" maxlength="100" />
+                            placeholder="Informe sua senha" maxlength="100" type="password" />
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <input name="confirmar-senha" id="confirmar-senha" class="form-control mb-20" 
-                            placeholder="Confirme sua senha" maxlength="100" />
+                            placeholder="Confirme sua senha" maxlength="100" type="password" />
                         </div>
                     </fieldset>
                 </form>
                 <form id="usuario-pai-insert" method="POST" action="pessoa">
+                    <input id="idEndereco" name="idEndereco" type="hidden" value="" />
+                    <input id="idUsuario" name="idUsuario" type="hidden" value="" />
                     <fieldset>
                         <legend class="col-xs-12">Dados do responsavel</legend>
                         <div class="col-xs-12 col-md-6">
@@ -36,7 +38,8 @@
                         </div>
                     </fieldset>
                 </form>
-                <form id="endereco-insert" method="POST" action="pessoa">
+                <form id="endereco-insert" method="POST" action="endereco">
+                    <input id="idBairro" name="idBairro" type="hidden" value="" />
                     <fieldset>
                         <legend class="col-xs-12">Dados de endereço</legend>
                         <div class="col-xs-12 col-md-6">
@@ -51,7 +54,7 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <select class="form-control mb-20" name="select-bairro" disabled="disabled"
-                            onchange="javascript:enabledButton($(this));">
+                            onchange="javascript:setBairro($(this));">
                             </select>
                         </div>
                         <div class="col-xs-12 col-md-6">

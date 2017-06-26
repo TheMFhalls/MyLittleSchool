@@ -28,19 +28,20 @@ public class PessoaDao{
         try{      
             String sql_insert = dialeto.inserir();
             ps = this.connection.prepareStatement(sql_insert);
-            
-            ps.setString(1, p.getCpf());
-            ps.setString(2, p.getEmail());
-            ps.setString(3,p.getSenha());
-            ps.setString(4,p.getNome());
-            ps.setLong(5, p.getIdEndereco());
-            ps.setLong(6, p.getIdResponsavel());
-            ps.setDate(7, (java.sql.Date) p.getData());
-            ps.setInt(8, p.getAtivo());
+                        
+            ps.setLong(1, p.getIdPessoa());
+            ps.setLong(2, p.getIdUsuario());
+            ps.setString(3, p.getCpf());
+            ps.setString(4, p.getEmail());
+            ps.setString(5, p.getSenha());
+            ps.setString(6, p.getNome());
+            ps.setLong(7, p.getIdEndereco());
+            ps.setDate(8, (java.sql.Date) p.getData());
+            ps.setInt(9, p.getAtivo());
 
-            ps.executeUpdate ();
+            ps.executeUpdate();
         }catch(SQLException e){
-            System.out.println("Erro: classe EstadoDao - não foi possível inserir o Estado no BD.");
+            throw new RuntimeException(e);
         }finally{
             try{
                 if(ps != null)
@@ -65,20 +66,19 @@ public class PessoaDao{
                 Pessoa  p   = new Pessoa ();
 
                 p.setIdPessoa(rs.getLong("idPessoa"));
+                p.setIdUsuario(rs.getLong("idUsuario"));
                 p.setCpf(rs.getString("cpf"));
                 p.setEmail(rs.getString("email"));
                 p.setSenha(rs.getString("senha"));
                 p.setIdEndereco (rs.getLong("idEndereco"));
                 p.setNome (rs.getString ("nome"));
-                p.setIdResponsavel(rs.getLong("responsavel"));
                 p.setData((java.sql.Date) rs.getDate("data"));
                 p.setAtivo(rs.getInt("ativo"));
                 
                 resp.add (p);
             }
         } catch (SQLException e) {
-            resp = null;
-            System.out.println ("Erro: classe PessoaDao - não foi possível ler os dados das Pessoas  a partir do BD!");
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (rs != null) 
@@ -107,19 +107,18 @@ public class PessoaDao{
             rs = ps.executeQuery ();
 
             if (rs.next()) {
-                    p.setIdPessoa(rs.getLong("idPessoa"));
+                p.setIdPessoa(rs.getLong("idPessoa"));
+                p.setIdUsuario(rs.getLong("idUsuario"));
                 p.setCpf(rs.getString("cpf"));
                 p.setEmail(rs.getString("email"));
                 p.setSenha(rs.getString("senha"));
                 p.setIdEndereco (rs.getLong("idEndereco"));
                 p.setNome (rs.getString ("nome"));
-                p.setIdResponsavel(rs.getLong("responsavel"));
                 p.setData((java.sql.Date) rs.getDate("data"));
                 p.setAtivo(rs.getInt("ativo"));
             }
         } catch (SQLException e) {
-          p = null;
-          System.out.println ("Erro: classe PessoaDao - Pessoa não encontrado.");
+          throw new RuntimeException(e);
         } finally {
           try {
             if (rs != null) 
@@ -141,18 +140,18 @@ public class PessoaDao{
             String sql_update = dialeto.alterar (); 
             ps = this.connection.prepareStatement (sql_update);
 
-           ps.setString(1, p.getCpf());
+            ps.setLong(1, p.getIdUsuario());
+            ps.setString(1, p.getCpf());
             ps.setString(2, p.getEmail());
             ps.setString(3,p.getSenha());
             ps.setString(4,p.getNome());
             ps.setLong(5, p.getIdEndereco());
-            ps.setLong(6, p.getIdResponsavel());
-            ps.setDate(7, (java.sql.Date) p.getData());
-            ps.setInt(8, p.getAtivo());
+            ps.setDate(6, (java.sql.Date) p.getData());
+            ps.setInt(7, p.getAtivo());
 
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println ("Erro: classe EstadoDao - não foi possível atualizar o Estado no BD.");
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (ps != null)
@@ -175,7 +174,7 @@ public class PessoaDao{
 
             ps.executeUpdate ();
         } catch (SQLException e) {
-            System.out.println ("Erro: classe PEssoaDao - não foi possível excluir a Pessoa no BD.");
+            throw new RuntimeException(e);
         } finally {
             try {
               if (ps != null)

@@ -13,6 +13,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/bairro/*</url-pattern>
         <url-pattern>/escola/*</url-pattern>
         <url-pattern>/usuario/*</url-pattern>
+        <url-pattern>/pessoa/*</url-pattern>
+        <url-pattern>/endereco/*</url-pattern>
     </filter-mapping>
     
     <filter>
@@ -26,6 +28,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/bairro/*</url-pattern>        
         <url-pattern>/escola/*</url-pattern>      
         <url-pattern>/usuario/*</url-pattern>
+        <url-pattern>/pessoa/*</url-pattern>
+        <url-pattern>/endereco/*</url-pattern>
     </filter-mapping>
     
     <filter>
@@ -80,6 +84,24 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
     <servlet-mapping>
         <servlet-name>ControladorEscola</servlet-name>
         <url-pattern>/escola/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorPessoa</servlet-name>
+        <servlet-class>controller.ControladorPessoa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorPessoa</servlet-name>
+        <url-pattern>/pessoa/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorEndereco</servlet-name>
+        <servlet-class>controller.ControladorEndereco</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorEndereco</servlet-name>
+        <url-pattern>/endereco/*</url-pattern>
     </servlet-mapping>
     
 </web-app>

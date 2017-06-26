@@ -9,8 +9,7 @@ public class DialetoPessoa implements Dialeto {
 
     @Override
     public String inserir(){
-      return "INSERT INTO dbMLS.pessoa(cpf, email, senha, nome,idEndereco, idResponsavel"
-              + ", data, ativo) VALUES(?, ?, ?, ?,?,?,?,?)";
+      return "INSERT INTO dbMLS.pessoa(idPessoa, idUsuario, cpf, email, senha, nome, idEndereco, data, ativo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     }
 
     @Override
@@ -25,12 +24,11 @@ public class DialetoPessoa implements Dialeto {
 
     @Override
     public String alterar(){
-      return "UPDATE dbMLS.estado SET cpf = ?, email = ?, senha = ?, nome = ?,"
-              + "idEndereco = ?, idResponsavel = ?, data = ?, ativo = ? WHERE idPessoa = ?";
+      return "UPDATE dbMLS.pessoa SET idUsuario = ?, cpf = ?, email = ?, senha = ?, nome = ?, idEndereco = ?, data = ?, ativo = ? WHERE idPessoa = ?";
     }
 
     @Override
     public String remover(){
-      return "UPDATE dbMLS.estado SET ativo = 0 WHERE idPessoa = ?";
+      return "UPDATE dbMLS.pessoa SET ativo = 0 WHERE idPessoa = ?";
     }
 }

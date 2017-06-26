@@ -32,6 +32,6 @@ public class DialetoEstado implements Dialeto {
     }
     
     public String encontrarCidadeEstado(){
-        return "select * from dbMLS.cidade where idEstado = ? AND ativo = 1";
+        return "SELECT c.* FROM cidade c INNER JOIN bairro b ON c.idCidade = b.idCidade WHERE c.idEstado = ? AND c.ativo = 1 GROUP BY c.nome";
     }
 }

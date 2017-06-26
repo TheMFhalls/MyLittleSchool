@@ -7,7 +7,7 @@ import controller.logica.endereco.AtualizarEndereco;
 import controller.logica.endereco.CadastrarEndereco;
 import controller.logica.endereco.EncontrarEndereco;
 import controller.logica.endereco.ExcluirEndereco;
-import controller.logica.estado.ExibirEstado;
+import controller.logica.endereco.ExibirEndereco;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,12 +32,12 @@ public class ControladorEndereco extends HttpServlet {
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);
             }else{
-                Logica logica = (Logica) new ExibirEstado();
+                Logica logica = (Logica) new ExibirEndereco();
 
                 logica.executa(request, response);
 
                 Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("estados"));
+                String data = json.toJson(request.getAttribute("enderecos"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);                 
@@ -56,7 +56,7 @@ public class ControladorEndereco extends HttpServlet {
             logica.executa(request, response);
             
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("endereco"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);
@@ -74,7 +74,7 @@ public class ControladorEndereco extends HttpServlet {
             logica.executa(request, response);
 
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("endereco"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);
@@ -92,7 +92,7 @@ public class ControladorEndereco extends HttpServlet {
             logica.executa(request, response);
 
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("endereco"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);

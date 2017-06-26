@@ -32,7 +32,6 @@ public class AtualizarPessoa implements Logica {
         pessoaAtual.setEmail(pessoaNova.getEmail());
         pessoaAtual.setSenha(pessoaNova.getSenha());
         pessoaAtual.setIdEndereco(pessoaNova.getIdEndereco());
-        pessoaAtual.setIdResponsavel(pessoaNova.getIdResponsavel()); 
         pessoaAtual.setData(dataAtual);
         pessoaAtual.setAtivo(1);  
         

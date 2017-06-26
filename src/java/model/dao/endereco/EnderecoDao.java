@@ -3,6 +3,7 @@ package model.dao.endereco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,20 +33,18 @@ public class EnderecoDao {
       ps.setLong (3,en.getNumero());
       ps.setLong (4, en.getIdBairro());
       ps.setString (5, en.getComplemento());
-      ps.setDate(6, en.getData());
+      ps.setDate(6, (java.sql.Date) en.getData());
       ps.setInt(7, en.getAtivo());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
-      System.out.println ("Erro: classe UsuarioDao - não foi possível inserir o usuário no BD.");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
       }
     }  
   }
@@ -72,19 +71,16 @@ public class EnderecoDao {
         en.setAtivo(rs.getInt("ativo"));
         resp.add (en);
       }
-    } catch (Exception e) {
-      resp = null;
-      System.out.println ("Erro: classe UsuarioDao - não foi possível ler os dados dos usuário a partir do BD!");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (rs != null) 
           rs.close ();      
         if (stmt != null)
           stmt.close ();
-      } catch (Exception e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível fechar os manipuladores do BD!");
-        e.printStackTrace ();
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
       }
     }  
     
@@ -113,19 +109,16 @@ public class EnderecoDao {
         en.setData(rs.getDate("data"));
         en.setAtivo(rs.getInt("ativo"));
       }
-    } catch (Exception e) {
-      en = null;
-      System.out.println ("Erro: classe UsuarioDao - usuário não encontrado.");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (rs != null) 
           rs.close ();      
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
       }
     }  
     return en;
@@ -147,16 +140,14 @@ public class EnderecoDao {
       ps.setInt(7, en.getAtivo());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
-      System.out.println ("Erro: classe UsuarioDao - não foi possível atualizar o usuário no BD.");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
       }
     }  
   }
@@ -171,16 +162,14 @@ public class EnderecoDao {
       ps.setLong (1, en.getIdEndereco ());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
-      System.out.println ("Erro: classe UsuarioDao - não foi possível excluir o usuário no BD.");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (ps != null)
           ps.close ();
-      } catch (Exception e) {
-        System.out.println ("Erro: classe UsuarioDao - não foi possível fechar o manipulador de BD!");
-        e.printStackTrace ();
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
       }
     }  
   }

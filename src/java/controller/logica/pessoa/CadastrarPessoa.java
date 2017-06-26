@@ -18,10 +18,12 @@ public class CadastrarPessoa implements Logica {
         String data = (String) request.getAttribute("data");
         java.util.Date date = new java.util.Date();
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
+        Long idPessoa = dataAtual.getTime();
         
         Gson gson = new Gson();
         Pessoa pessoa = gson.fromJson(data, Pessoa.class);
         
+        pessoa.setIdPessoa(idPessoa);
         pessoa.setData(dataAtual);
         pessoa.setAtivo(1);
 

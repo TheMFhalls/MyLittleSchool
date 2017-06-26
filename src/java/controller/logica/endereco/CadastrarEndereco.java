@@ -18,10 +18,12 @@ public class CadastrarEndereco implements Logica {
         String data = (String) request.getAttribute("data");
         java.util.Date date = new java.util.Date();
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
+        Long idEndereco = dataAtual.getTime();
         
         Gson gson = new Gson();
         Endereco endereco = gson.fromJson(data, Endereco.class);
         
+        endereco.setIdEndereco(idEndereco);
         endereco.setData(dataAtual);
         endereco.setAtivo(1);
 

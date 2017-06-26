@@ -4,17 +4,25 @@ import java.sql.Date;
 
 public class Pessoa {
     private long    idPessoa;
+    private long    idUsuario;
     private String  cpf;
     private String  email;
     private String  senha;
     private String  nome;
     private long    idEndereco;
-    private long    idResponsavel;
     private Date    data;
     private int     ativo;
     
     public Pessoa(){
     }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }   
 
     public long getIdPessoa() {
         return idPessoa;
@@ -62,14 +70,6 @@ public class Pessoa {
 
     public void setIdEndereco(long idEndereco) {
         this.idEndereco = idEndereco;
-    }
-
-    public long getIdResponsavel() {
-        return idResponsavel;
-    }
-
-    public void setIdResponsavel(long idResponsavel) {
-        this.idResponsavel = idResponsavel;
     }
 
     public Date getData() {

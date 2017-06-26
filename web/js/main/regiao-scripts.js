@@ -108,7 +108,7 @@ function selectBairros(elemento){
             $.each(data, function(){
                 var item = $(this)[0];
                 destino.append($('<option>', {
-                    value: item.idCidade,
+                    value: item.idBairro,
                     text: item.nome
                 }));
             });  

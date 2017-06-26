@@ -8,7 +8,7 @@ public class DialetoUsuario implements Dialeto {
 
     @Override
     public String inserir(){
-      return "INSERT INTO dbMLS.usuario(login, senha, email, data, ativo) VALUES(?, ?, ?, ?, ?)";
+      return "INSERT INTO dbMLS.usuario(idUsuario, login, senha, email, data, ativo) VALUES(?, ?, ?, ?, ?, ?)";
     }
 
     @Override
