@@ -33,7 +33,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/pessoa/*</url-pattern>
         <url-pattern>/endereco/*</url-pattern>
     </filter-mapping>
-    
+    <!--
     <filter>
         <filter-name>FiltroLogin</filter-name>
         <filter-class>filter.FiltroLogin</filter-class>
@@ -51,7 +51,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <filter-name>FiltroSessao</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+    -->
     <servlet>
         <servlet-name>ControladorEstado</servlet-name>
         <servlet-class>controller.ControladorEstado</servlet-class>
