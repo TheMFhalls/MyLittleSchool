@@ -3,18 +3,27 @@ package model.bean;
 import java.sql.Date;
 
 public class Escola {
-    private long    idEscola;
+    private String  idEscola;
     private String  cnpj;
     private String  nomeFantasia;
     private String  razaoSocial;
-    private long    idPontuacao;
-    private long    idEndereco;
+    private String  idPontuacao;
+    private String  idUsuario;
+    private String  idEndereco;
     private String  senha;
     private Date    data;
     private int     ativo;
     
     public Escola(){
     }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }    
 
     public String getSenha() {
         return senha;
@@ -24,11 +33,11 @@ public class Escola {
         this.senha = senha;
     }
 
-    public long getIdEscola() {
+    public String getIdEscola() {
         return idEscola;
     }
 
-    public void setIdEscola(long idEscola) {
+    public void setIdEscola(String idEscola) {
         this.idEscola = idEscola;
     }
 
@@ -56,19 +65,19 @@ public class Escola {
         this.razaoSocial = razaoSocial;
     }
 
-    public long getIdPontuacao() {
+    public String getIdPontuacao() {
         return idPontuacao;
     }
 
-    public void setIdPontuacao(long idPontuacao) {
+    public void setIdPontuacao(String idPontuacao) {
         this.idPontuacao = idPontuacao;
     }
 
-    public long getIdEndereco() {
+    public String getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(long idEndereco) {
+    public void setIdEndereco(String idEndereco) {
         this.idEndereco = idEndereco;
     }
 

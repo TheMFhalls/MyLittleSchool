@@ -196,12 +196,12 @@ public class BairroDao {
             while (rs.next()) {
                 Escola e = new Escola();
 
-                e.setIdEscola (rs.getLong ("idEscola"));
+                e.setIdEscola (rs.getString ("idEscola"));
                 e.setCnpj (rs.getString ("cnpj"));
                 e.setNomeFantasia (rs.getString ("nomeFantasia"));
                 e.setRazaoSocial (rs.getString ("razaoSocial"));
-                e.setIdPontuacao (rs.getLong ("idPontuacao"));
-                e.setIdEndereco (rs.getLong ("idEndereco"));
+                e.setIdPontuacao (rs.getString ("idPontuacao"));
+                e.setIdEndereco (rs.getString ("idEndereco"));
                 e.setSenha (rs.getString ("senha"));
                 e.setData((java.sql.Date) rs.getDate("data"));
                 e.setAtivo(rs.getInt("ativo"));

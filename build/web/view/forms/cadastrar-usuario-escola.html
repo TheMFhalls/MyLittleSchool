@@ -1,7 +1,18 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="cadastrar-usuario-pai mt-30">
+            <div class="cadastrar-usuario-escola mt-30">
+                <form id="pontuacao-insert" method="POST" action="pontuacao">
+                    <input id="alimentacao" name="alimentacao" type="hidden" value="0" />
+                    <input id="infraestrutura" name="infraestrutura" type="hidden" value="0" />
+                    <input id="limpeza" name="limpeza" type="hidden" value="0" />
+                    <input id="educacao" name="educacao" type="hidden" value="0" />
+                    <input id="organizacao" name="organizacao" type="hidden" value="0" />
+                    <input id="flexibilidade" name="flexibilidade" type="hidden" value="0" />
+                    <input id="profissionais" name="profissionais" type="hidden" value="0" />
+                    <input id="comunicacao" name="comunicacao" type="hidden" value="0" />
+                    <input id="custo" name="custo" type="hidden" value="0" />
+                </form>
                 <form id="usuario-insert" method="POST" action="usuario">
                     <fieldset>
                         <legend class="col-xs-12">Dados de usuário</legend>
@@ -15,28 +26,36 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <input name="senha" id="senha" class="form-control mb-20" 
-                            placeholder="Informe sua senha" maxlength="100" />
+                            placeholder="Informe sua senha" maxlength="100" type="password" />
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <input name="confirmar-senha" id="confirmar-senha" class="form-control mb-20" 
-                            placeholder="Confirme sua senha" maxlength="100" />
+                            placeholder="Confirme sua senha" maxlength="100" type="password" />
                         </div>
                     </fieldset>
                 </form>
-                <form id="usuario-pai-insert" method="POST" action="pessoa">
+                <form id="usuario-escola-insert" method="POST" action="escola">
+                    <input id="idEndereco" name="idEndereco" type="hidden" value="" />
+                    <input id="idUsuario" name="idUsuario" type="hidden" value="" />
+                    <input id="idPontuacao" name="idPontuacao" type="hidden" value="" />
                     <fieldset>
                         <legend class="col-xs-12">Dados da Escola</legend>
                         <div class="col-xs-12 col-md-6">
-                            <input name="cpf" id="cpf" class="form-control mb-20" 
-                            placeholder="Informe seu CPF" maxlength="100" />
+                            <input name="cnpj" id="cnpj" class="form-control mb-20" 
+                            placeholder="Informe seu CNPJ" maxlength="15" />
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <input name="nome" id="nome" class="form-control mb-20" 
-                            placeholder="Informe seu nome" maxlength="255" />
+                            <input name="nomeFantasia" id="nomeFantasia" class="form-control mb-20" 
+                            placeholder="Informe seu Nome Fantasia" maxlength="255" />
+                        </div>
+                        <div class="col-xs-12">
+                            <input name="razaoSocial" id="razaoSocial" class="form-control mb-20" 
+                            placeholder="Informe sua Razão Social" maxlength="255" />
                         </div>
                     </fieldset>
                 </form>
-                <form id="endereco-insert" method="POST" action="pessoa">
+                <form id="endereco-insert" method="POST" action="endereco">
+                    <input id="idBairro" name="idBairro" type="hidden" value="" />
                     <fieldset>
                         <legend class="col-xs-12">Dados de endereço</legend>
                         <div class="col-xs-12 col-md-6">
@@ -51,7 +70,7 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <select class="form-control mb-20" name="select-bairro" disabled="disabled"
-                            onchange="javascript:enabledButton($(this));">
+                            onchange="javascript:setBairro($(this));">
                             </select>
                         </div>
                         <div class="col-xs-12 col-md-6">
@@ -68,9 +87,13 @@
                         </div>
                     </fieldset>
                 </form>
+                <div class="col-xs-12 col-md-6">
+                    <a class="btn btn-success" href="javascript:void(0);"
+                    onclick="$('#usuario-insert').submit();">Cadastrar</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script src="js/forms/cadastrar-usuario-pai-scripts.js"></script>
+<script src="js/forms/cadastrar-usuario-escola-scripts.js"></script>
 <script src="js/main/regiao-scripts.js"></script>

@@ -13,9 +13,8 @@ public class DialetoPontuacao implements Dialeto {
   
   @Override
   public String inserir () {
-    return "insert into db.MLS.pontuacao (alimentacao,infraestrutura,limpeza,"
-            + "educacao,organizacao,flexibilidade,profissionais,comunicacao, custo) "
-            + "values, data, ativo (?,?,?,?,?,?,?,?,?,?,?)";
+    return "INSERT INTO dbMLS.pontuacao(idPontuacao, alimentacao, infraestrutura, limpeza, educacao, organizacao, flexibilidade, "
+            + "profissionais, comunicacao, custo, data, ativo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   }
 
   @Override

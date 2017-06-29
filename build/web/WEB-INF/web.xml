@@ -16,6 +16,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/usuario/*</url-pattern>
         <url-pattern>/pessoa/*</url-pattern>
         <url-pattern>/endereco/*</url-pattern>
+        <url-pattern>/pontuacao/*</url-pattern>
     </filter-mapping>
     
     <filter>
@@ -32,6 +33,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
         <url-pattern>/usuario/*</url-pattern>
         <url-pattern>/pessoa/*</url-pattern>
         <url-pattern>/endereco/*</url-pattern>
+        <url-pattern>/pontuacao/*</url-pattern>
     </filter-mapping>
     <!--
     <filter>
@@ -113,6 +115,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml
     <servlet-mapping>
         <servlet-name>ControladorEndereco</servlet-name>
         <url-pattern>/endereco/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ControladorPontuacao</servlet-name>
+        <servlet-class>controller.ControladorPontuacao</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControladorPontuacao</servlet-name>
+        <url-pattern>/pontuacao/*</url-pattern>
     </servlet-mapping>
     
 </web-app>

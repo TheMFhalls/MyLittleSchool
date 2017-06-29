@@ -25,7 +25,7 @@ public class AtualizarPontuacao implements Logica {
         PontuacaoDao dao = new PontuacaoDao(db);
         Pontuacao pontuacaoAtual = dao.encontrar(Long.parseLong(pathParts[2]));
         
-        pontuacaoAtual.setIdPontuacao(Long.parseLong(pathParts[2]));
+        pontuacaoAtual.setIdPontuacao(pathParts[2]);
         pontuacaoAtual.setAlimentacao(pontuacaoNova.getAlimentacao());   
         pontuacaoAtual.setComunicacao(pontuacaoNova.getComunicacao());
         pontuacaoAtual.setCusto(pontuacaoNova.getCusto());

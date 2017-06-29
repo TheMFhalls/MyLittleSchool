@@ -18,6 +18,6 @@ public class ExibirPontuacao implements Logica {
         PontuacaoDao dao = new PontuacaoDao(db); //Inversão de controle e injeção de dependência.
         List<Pontuacao> pontuacao = dao.listar();
 
-        request.setAttribute("pontuacao", pontuacao);   
+        request.setAttribute("pontuacoes", pontuacao);   
     }  
 }

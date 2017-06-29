@@ -8,7 +8,7 @@ public class Pontuacao {
     public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
-    private long    idPontuacao;
+    private String    idPontuacao;
     private double  alimentacao;
     private double  infraestrutura;
     private double  limpeza;
@@ -24,11 +24,11 @@ public class Pontuacao {
     public Pontuacao () {
     }
 
-    public long getIdPontuacao() {
+    public String getIdPontuacao() {
         return idPontuacao;
     }
 
-    public void setIdPontuacao(long idPontuacao) {
+    public void setIdPontuacao(String idPontuacao) {
         this.idPontuacao = idPontuacao;
     }
 

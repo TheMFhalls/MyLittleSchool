@@ -27,7 +27,7 @@ public class ControladorPontuacao extends HttpServlet {
                 logica.executa(request, response);
 
                 Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("estado"));
+                String data = json.toJson(request.getAttribute("pontuacao"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);
@@ -37,7 +37,7 @@ public class ControladorPontuacao extends HttpServlet {
                 logica.executa(request, response);
 
                 Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-                String data = json.toJson(request.getAttribute("estados"));
+                String data = json.toJson(request.getAttribute("pontuacoes"));
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);                 
@@ -56,7 +56,7 @@ public class ControladorPontuacao extends HttpServlet {
             logica.executa(request, response);
             
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("pontuacao"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);
@@ -74,7 +74,7 @@ public class ControladorPontuacao extends HttpServlet {
             logica.executa(request, response);
 
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("pontuacao"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);
@@ -92,7 +92,7 @@ public class ControladorPontuacao extends HttpServlet {
             logica.executa(request, response);
 
             Gson json = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            String data = json.toJson(request.getAttribute("estado"));
+            String data = json.toJson(request.getAttribute("pontuacao"));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(data);

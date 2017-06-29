@@ -31,20 +31,20 @@ public class EscolaDao{
         try{      
             String sql_insert = dialeto.inserir();
             ps = this.connection.prepareStatement(sql_insert);
-            ps.setLong(1, el.getIdEscola());
             
-            ps.setLong(1, el.getIdEscola());
-            ps.setString(2, el.getCnpj());
-            ps.setString(3, el.getNomeFantasia());
-            ps.setString(4, el.getRazaoSocial());
-            ps.setLong(5, el.getIdPontuacao());
-            ps.setLong(6, el.getIdEndereco());      
-            ps.setDate(7, (java.sql.Date) el.getData());
-            ps.setInt(8, el.getAtivo());
+            ps.setString(1, el.getIdEscola());
+            ps.setString(2, el.getIdUsuario());
+            ps.setString(3, el.getCnpj());
+            ps.setString(4, el.getNomeFantasia());
+            ps.setString(5, el.getRazaoSocial());
+            ps.setString(6, el.getIdPontuacao());
+            ps.setString(7, el.getIdEndereco());      
+            ps.setDate(8, (java.sql.Date) el.getData());
+            ps.setInt(9, el.getAtivo());
 
             ps.executeUpdate ();
         }catch(SQLException e){
-            System.out.println("Erro: classe EstadoDao - não foi possível inserir o Estado no BD.");
+            throw new RuntimeException(e);
         }finally{
             try{
                 if(ps != null)
@@ -68,12 +68,12 @@ public class EscolaDao{
             while (rs.next()) {
                 Escola el = new Escola ();
 
-                el.setIdEscola(rs.getInt("idEscola"));
+                el.setIdEscola(rs.getString("idEscola"));
                 el.setCnpj(rs.getString("cnpj"));
                 el.setNomeFantasia(rs.getString("nomeFantasia"));
                 el.setRazaoSocial(rs.getString("razaoSocial"));
-                el.setIdEndereco(rs.getInt("idEndereco"));
-                el.setIdPontuacao(rs.getInt("idPontuacao"));
+                el.setIdEndereco(rs.getString("idEndereco"));
+                el.setIdPontuacao(rs.getString("idPontuacao"));
                 el.setData((java.sql.Date) rs.getDate("data"));
                 el.setAtivo(rs.getInt("ativo"));
                 
@@ -110,12 +110,12 @@ public class EscolaDao{
             rs = ps.executeQuery ();
 
             if (rs.next()) {
-                el.setIdEscola(rs.getInt("idEscola"));
+                el.setIdEscola(rs.getString("idEscola"));
                 el.setCnpj(rs.getString("cnpj"));
                 el.setNomeFantasia(rs.getString("nomeFantasia"));
                 el.setRazaoSocial(rs.getString("razaoSocial"));
-                el.setIdEndereco(rs.getInt("idEndereco"));
-                el.setIdPontuacao(rs.getInt("idPontuacao"));
+                el.setIdEndereco(rs.getString("idEndereco"));
+                el.setIdPontuacao(rs.getString("idPontuacao"));
                 el.setData((java.sql.Date) rs.getDate("data"));
                 el.setAtivo(rs.getInt("ativo"));
             }
@@ -143,12 +143,12 @@ public class EscolaDao{
             String sql_update = dialeto.alterar (); 
             ps = this.connection.prepareStatement (sql_update);
 
-            ps.setLong(1, el.getIdEscola());
+            ps.setString(1, el.getIdEscola());
             ps.setString(2, el.getCnpj());
             ps.setString(3, el.getNomeFantasia());
             ps.setString(4, el.getRazaoSocial());
-            ps.setLong(5, el.getIdPontuacao());
-            ps.setLong(6, el.getIdEndereco());      
+            ps.setString(5, el.getIdPontuacao());
+            ps.setString(6, el.getIdEndereco());      
             ps.setDate(7, (java.sql.Date) el.getData());
             ps.setInt(8, el.getAtivo());
 
@@ -173,7 +173,7 @@ public class EscolaDao{
             ps = this.connection.prepareStatement (sql_delete);
 
             ps.setInt(1, el.getAtivo());
-            ps.setLong(2, el.getIdEscola());
+            ps.setString(2, el.getIdEscola());
 
             ps.executeUpdate ();
         } catch (SQLException e) {
@@ -247,7 +247,7 @@ public class EscolaDao{
             while (rs.next()) {
                 Pontuacao p = new Pontuacao();
 
-                p.setIdPontuacao (rs.getLong ("idPontuacao"));
+                p.setIdPontuacao (rs.getString("idPontuacao"));
                 p.setAlimentacao (rs.getDouble ("alimentacao"));
                 p.setInfraestrutura (rs.getDouble ("infraestrutura"));
                 p.setLimpeza (rs.getDouble ("limpeza"));

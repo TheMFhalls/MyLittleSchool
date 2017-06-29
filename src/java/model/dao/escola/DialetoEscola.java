@@ -8,7 +8,7 @@ public class DialetoEscola implements Dialeto {
 
     @Override
     public String inserir(){
-      return "INSERT INTO dbMLS.escola(cnpj, nomeFantasia, razaoSocial, idPontuacao, idEndereco,data, ativo) VALUES(?, ?, ?, ?,?,?,?)";
+      return "INSERT INTO dbMLS.escola(idEscola, idUsuario, cnpj, nomeFantasia, razaoSocial, idPontuacao, idEndereco, data, ativo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     }
 
     @Override

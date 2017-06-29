@@ -18,10 +18,12 @@ public class CadastrarPontuacao implements Logica {
         String data = (String) request.getAttribute("data");
         java.util.Date date = new java.util.Date();
         java.sql.Date dataAtual = new java.sql.Date(date.getTime());
+        Long idPontuacao = dataAtual.getTime();
         
         Gson gson = new Gson();
         Pontuacao pontuacao = gson.fromJson(data, Pontuacao.class);
         
+        pontuacao.setIdPontuacao(String.valueOf(idPontuacao));
         pontuacao.setData(dataAtual);
         pontuacao.setAtivo(1);
 

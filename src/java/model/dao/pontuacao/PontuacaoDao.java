@@ -3,6 +3,7 @@ package model.dao.pontuacao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,22 +28,22 @@ public class PontuacaoDao {
       String sql_insert = dialeto.inserir ();
       ps = this.connection.prepareStatement (sql_insert);
       
-      ps.setDouble(1, p.getAlimentacao());
-      ps.setDouble (2, p.getInfraestrutura ());
-      ps.setDouble (3, p.getLimpeza());
-      ps.setDouble (4, p.getEducacao());
-      ps.setDouble (5, p.getOrganizacao());
-      ps.setDouble (6, p.getFlexibilidade());
-      ps.setDouble (7, p.getProfissionais());
-      ps.setDouble (8, p.getComunicacao());
-      ps.setDouble (9, p.getCusto());
-      ps.setDate(10, p.getData());
-      ps.setInt(11, p.getAtivo());
+      ps.setString(1, p.getIdPontuacao());
+      ps.setDouble(2, p.getAlimentacao());
+      ps.setDouble (3, p.getInfraestrutura ());
+      ps.setDouble (4, p.getLimpeza());
+      ps.setDouble (5, p.getEducacao());
+      ps.setDouble (6, p.getOrganizacao());
+      ps.setDouble (7, p.getFlexibilidade());
+      ps.setDouble (8, p.getProfissionais());
+      ps.setDouble (9, p.getComunicacao());
+      ps.setDouble (10, p.getCusto());
+      ps.setDate(11, (java.sql.Date) p.getData());
+      ps.setInt(12, p.getAtivo());
       
       ps.executeUpdate ();
-    } catch (Exception e) {
-      System.out.println ("Erro: classe UsuarioDao - não foi possível inserir o usuário no BD.");
-      e.printStackTrace ();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     } finally {
       try {
         if (ps != null)
@@ -67,7 +68,7 @@ public class PontuacaoDao {
       while (rs.next()) {
         Pontuacao p = new Pontuacao ();
         
-         p.setIdPontuacao(rs.getLong("idPontuacao"));
+         p.setIdPontuacao(rs.getString("idPontuacao"));
          p.setAlimentacao(rs.getLong("alimentacao"));
          p.setInfraestrutura (rs.getLong ("infraestrutura"));
          p.setLimpeza(rs.getLong("limpeza"));
@@ -115,7 +116,7 @@ public class PontuacaoDao {
       rs = ps.executeQuery ();
       
       if (rs.next ()) {
-         p.setIdPontuacao (rs.getLong ("idPontuacao"));
+         p.setIdPontuacao (rs.getString("idPontuacao"));
          p.setAlimentacao(rs.getLong("alimentacao"));
          p.setInfraestrutura (rs.getLong ("infraestrutura"));
          p.setLimpeza(rs.getLong("limpeza"));
@@ -162,7 +163,7 @@ public class PontuacaoDao {
       ps.setDouble (7, p.getProfissionais());
       ps.setDouble (8, p.getComunicacao());
       ps.setDouble (9, p.getCusto());
-      ps.setDouble (10,p.getIdPontuacao());
+      ps.setString (10,p.getIdPontuacao());
       ps.setDate   (11,p.getData());
       ps.setInt    (12,p.getAtivo());
       
@@ -188,7 +189,7 @@ public class PontuacaoDao {
       String sql_delete = dialeto.remover ();
       ps = this.connection.prepareStatement (sql_delete);
       
-      ps.setLong (1, p.getIdPontuacao ());
+      ps.setString(1, p.getIdPontuacao ());
       
       ps.executeUpdate ();
     } catch (Exception e) {
