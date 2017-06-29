@@ -7,12 +7,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import model.jdbc.DataBase;
-import model.jdbc.DataBaseFactory;
 
-public class FiltroSessao implements Filter {  
-    public FiltroSessao () {
+public class FilterLogout implements Filter {  
+    public FilterLogout () {
     }  
 
     @Override
@@ -22,9 +21,10 @@ public class FiltroSessao implements Filter {
     @Override
     public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
         throws IOException, ServletException {
-        HttpSession session;
-        
-        chain.doFilter(request, response);
+        HttpSession session;       
+        session = ((HttpServletRequest) request).getSession();
+        session.invalidate();        
+        response.getWriter().write("{ \"status\": \"1\", \"mensagem\": \"Usuario deslogado com sucesso!\" }");
     }
 
     @Override
