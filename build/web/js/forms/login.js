@@ -6,6 +6,7 @@ $(document).ready(function(){
             }else if(data.status === 1){
                 $("main").load(window.location.href+
                     "view/main/dashboard.html");
+                $.cookie('usuario', $("input:radio[name=usuario]:checked").val());
             }
         },
         function(){

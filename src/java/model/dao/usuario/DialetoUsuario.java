@@ -39,4 +39,13 @@ public class DialetoUsuario implements Dialeto {
         +"ON c.idEstado = est.idEstado WHERE u.ativo = 1 AND p.ativo = 1 AND e.ativo = 1 AND b.ativo = 1 "
         +"AND c.ativo = 1 AND est.ativo = 1 AND u.idUsuario = ?";
     }
+    
+    public String encontrarEscolaUsuario(){
+        return "SELECT u.login , u.email , esc.cnpj , esc.nomeFantasia , esc.razaoSocial , e.logradouro , "
+        +"b.nome as bairro , c.nome as cidade , est.nome as estado FROM usuario u INNER JOIN escola esc ON "
+        +"u.idUsuario = esc.idUsuario INNER JOIN endereco e ON esc.idEndereco = e.idEndereco INNER JOIN bairro b "
+        +"ON e.idBairro = b.idBairro INNER JOIN cidade c ON b.idCidade = c.idCidade INNER JOIN estado est ON "
+        +"c.idEstado = est.idEstado WHERE u.ativo = 1 AND esc.ativo = 1 AND e.ativo = 1 AND b.ativo = 1 AND "
+        +"c.ativo = 1 AND est.ativo = 1 AND u.idUsuario = ?";
+    }
 }

@@ -3,6 +3,7 @@ package controller;
 import controller.logica.Logica;
 import controller.logica.usuario.AtualizarUsuario;
 import controller.logica.usuario.CadastrarUsuario;
+import controller.logica.usuario.EncontrarEscolaUsuario;
 import controller.logica.usuario.EncontrarPessoaUsuario;
 import controller.logica.usuario.EncontrarUsuario;
 import controller.logica.usuario.ExcluirUsuario;
@@ -34,7 +35,16 @@ public class ControladorUsuario extends Controlador {
                     response.setContentType("application/json");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write((String) request.getAttribute("pessoaUsuario"));
-                }                
+                }
+                if("escola".equals(pathParts[3])){
+                    Logica logica = (Logica) new EncontrarEscolaUsuario();
+
+                    logica.executa(request, response);
+
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write((String) request.getAttribute("escolaUsuario"));
+                }
             }else{
                 Logica logica = (Logica) new ExibirUsuario();
 

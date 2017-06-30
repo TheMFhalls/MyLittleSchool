@@ -22,6 +22,49 @@ public class UsuarioDao{
         this.dialeto = new DialetoUsuario();
     }
     
+    public String encontrarEscolaUsuario(String id){
+        DialetoUsuario dialetoEspecifico = new DialetoUsuario();
+        String JSON = "";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {         
+            String sql_select = dialetoEspecifico.encontrarEscolaUsuario();
+            
+            ps = this.connection.prepareStatement (sql_select);
+            ps.setString(1, id);
+            rs = ps.executeQuery ();
+
+            while(rs.next()){
+                JSON += "{";                
+                JSON += "\"login\":\""+rs.getString("login")+"\",";
+                JSON += "\"email\":\""+rs.getString("email")+"\",";
+                JSON += "\"cnpj\":\""+rs.getString("cnpj")+"\",";
+                JSON += "\"nomeFantasia\":\""+rs.getString("nomeFantasia")+"\",";
+                JSON += "\"razaoSocial\":\""+rs.getString("razaoSocial")+"\",";
+                JSON += "\"logradouro\":\""+rs.getString("logradouro")+"\",";
+                JSON += "\"bairro\":\""+rs.getString("bairro")+"\",";
+                JSON += "\"cidade\":\""+rs.getString("cidade")+"\",";
+                JSON += "\"estado\":\""+rs.getString("estado")+"\"";
+                JSON += "}";
+            }
+        } catch (SQLException e) {
+            JSON = null;
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (rs != null) 
+                    rs.close ();      
+                if (ps != null)
+                    ps.close ();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }  
+
+        return JSON;
+    }
+    
     public String encontrarPessoaUsuario(String id){
         DialetoUsuario dialetoEspecifico = new DialetoUsuario();
         String JSON = "";

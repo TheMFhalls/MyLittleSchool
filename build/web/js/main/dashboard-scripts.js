@@ -10,7 +10,7 @@ $(document).ready(function(){
     }
     
     $.ajax({
-        url: "/usuario/security/pessoa",
+        url: "/usuario/security/"+$.cookie("usuario"),
         contentType: 'application/json',
         type: "GET",
         dataType: "json",
@@ -23,7 +23,18 @@ $(document).ready(function(){
     }).done(function(data){
         $.each(data, function(index, valor){
             $(".search-"+index).text(valor);
-        }); 
+        });
+        switch($.cookie("usuario")){
+            case "pessoa":
+                $(".search-nomeFantasia").parent().hide();
+                $(".search-cnpj").parent().hide();
+                $(".search-razaoSocial").parent().hide();
+            break;
+            case "escola":
+                $(".search-nome").parent().hide();
+                $(".search-cpf").parent().hide();
+            break;
+        }
     }).fail(function(){
         alert("Erro ao buscar informações!");
     });
