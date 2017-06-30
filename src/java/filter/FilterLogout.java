@@ -24,7 +24,7 @@ public class FilterLogout implements Filter {
         HttpSession session;       
         session = ((HttpServletRequest) request).getSession();
         session.invalidate();        
-        response.getWriter().write("{ \"status\": \"1\", \"mensagem\": \"Usuario deslogado com sucesso!\" }");
+        response.getWriter().write("{ \"status\": 1, \"mensagem\": \"Usuario deslogado com sucesso!\" }");
     }
 
     @Override

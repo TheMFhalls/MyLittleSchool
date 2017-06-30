@@ -1,7 +1,8 @@
 function formAjaxSubmit(
     identificador, 
     sucesso, 
-    beforeSend = function(){}
+    beforeSend = function(){},
+    complete = function(){}
 ){ 
     /*
     formAjaxSubmit("#estado-update", function(data){
@@ -24,7 +25,8 @@ function formAjaxSubmit(
             type: elemento.attr("method"),
             data: JSON.stringify(jsonForm),
             dataType: "json",
-            beforeSend: beforeSend
+            beforeSend: beforeSend,
+            complete: complete
         }).done(function(data){
             sucesso(data);
         }).fail(function(){

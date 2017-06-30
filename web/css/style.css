@@ -18,9 +18,18 @@
     display: none;
 }
 
+span{
+    word-wrap: break-word;
+}
+
+a[disabled]{
+    color: rgba(128, 128, 128, 0.50);
+}
+
 body {
     background: url(../img/fundo-child.jpg);
     background-size: 100%;
+    margin-bottom: 50px;
 }
 
 body a:hover{
@@ -112,6 +121,12 @@ main > div .itens-escola .item-escola .item-escola-container .informacoes{
     padding: 10px;
 }
 
+main > div .dashboard .dashboard-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px grey;
+}
+
 @media(max-width: 767px){
     #admin-bar > div .login span a{
         display: block;
@@ -122,11 +137,11 @@ main > div .itens-escola .item-escola .item-escola-container .informacoes{
     }
 }
 @media(min-width: 768px) AND (max-width: 991px){
-    
+
 }
 @media(max-width: 992px) AND (max-width: 1199px){
-    
+
 }
 @media(min-width: 1200px){
-    
+
 }

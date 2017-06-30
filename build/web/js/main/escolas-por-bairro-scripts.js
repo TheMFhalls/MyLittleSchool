@@ -103,6 +103,8 @@ function showEscolas(idBairro){
                 );
                 elemento = item = null;
             }); 
+        }else{
+            $("main").html("<h1 class='text-center'>Sem escolas para esta região!</h1>");
         }
     }).fail(function(){
         alert("Erro ao buscar as escolas!");
