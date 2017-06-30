@@ -53,7 +53,7 @@ public class FilterLogin implements Filter {
                 if(rs.next()){
                     session = ((HttpServletRequest) request).getSession();
                     session.setAttribute("idUsuario", rs.getString("idUsuario"));
-                    login.setLogin("");
+                    login.setLogin(rs.getString("idUsuario"));
                     login.setSenha("");
                     login.setStatus(1);
                     login.setMensagem("Login realizado com sucesso!");           

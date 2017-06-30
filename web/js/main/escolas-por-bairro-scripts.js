@@ -1,3 +1,21 @@
+$(document).ready(function(){    
+    showEscolas($.cookie("idBairro"));
+});
+
+function clickButton(){
+    $("button[id='mensagem']").on("click", function(){
+	var person = prompt("Escreva abaixo sua mensagem para esta escola");
+        if (!(person === null || person === "")) {
+            var mensagem = "<p><b>Usuario do Chat: </b>"+person+"</p>";
+            if($.cookie("mensagem")){
+                 $.cookie("mensagem", $.cookie("mensagem")+mensagem);
+            }else{
+                $.cookie("mensagem", mensagem);
+            }           
+        }
+    });
+}
+
 function mostrarPontuacao(idEscola){
     var $itemEscola = $("[idescola='"+idEscola+"']");
   
@@ -100,9 +118,13 @@ function showEscolas(idBairro){
                 elemento.find("button#pontuacao").attr(
                     "onclick", 
                     "javascript:mostrarPontuacao("+item.idEscola+");"
-                );
+                );                
                 elemento = item = null;
             }); 
+            if(!$.cookie('idUsuario')){
+                $("button[id='mensagem']").hide();
+            }
+            clickButton();
         }else{
             $("main").html("<h1 class='text-center'>Sem escolas para esta região!</h1>");
         }
@@ -110,7 +132,3 @@ function showEscolas(idBairro){
         alert("Erro ao buscar as escolas!");
     });
 }
-
-$(document).ready(function(){
-    showEscolas($.cookie("idBairro"));
-});
